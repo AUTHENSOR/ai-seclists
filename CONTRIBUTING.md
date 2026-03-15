@@ -1,6 +1,6 @@
 # Contributing to AI SecLists
 
-Thank you for your interest in contributing to AI SecLists! This project aims to be the most comprehensive collection of AI security testing payloads available.
+Thank you for your interest in contributing to AI SecLists! This project aims to be the largest collection of AI security testing payloads available.
 
 ## How to Contribute
 
@@ -23,20 +23,20 @@ Thank you for your interest in contributing to AI SecLists! This project aims to
 ### Example
 
 ```
-# Technique name — brief description of how/why it works
+# Technique name -- brief description of how/why it works
 Actual payload text here on a single line
 Another variant of the same technique
-# Different technique — explanation
+# Different technique -- explanation
 Payload for this technique
 ```
 
 ### Quality Standards
 
-- **Real payloads only** — Each entry should represent a genuine technique that a red teamer would use
-- **Diverse techniques** — Don't submit 50 variations of the same pattern with minor word changes
-- **Explain the technique** — Add a `#` comment explaining why the payload works or what it targets
-- **Test your payloads** — If possible, verify the payload demonstrates the intended behavior
-- **No actual secrets** — Use synthetic/fake credential patterns, never real keys or passwords
+- **Real payloads only** -- Each entry should represent a genuine technique that a red teamer would use
+- **Diverse techniques** -- Don't submit 50 variations of the same pattern with minor word changes
+- **Explain the technique** -- Add a `#` comment explaining why the payload works or what it targets
+- **Test your payloads** -- If possible, verify the payload demonstrates the intended behavior
+- **No actual secrets** -- Use synthetic/fake credential patterns, never real keys or passwords
 
 ### Categories for New Files
 
@@ -64,7 +64,7 @@ If you want to add a new category:
 | `exfiltration/` | Data exfiltration techniques |
 | `pii-patterns/` | PII detection test patterns (synthetic) |
 | `credential-patterns/` | Credential detection test patterns (synthetic) |
-| `benign/` | False positive testing — should NOT trigger scanners |
+| `benign/` | False positive testing -- should NOT trigger scanners |
 | `utils/` | Helper scripts for encoding and variant generation |
 
 ## Code of Conduct
