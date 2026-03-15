@@ -1,0 +1,6 @@
+# This repository contains intentional test payloads for AI security research.
+# All credentials, tokens, and keys are synthetic and non-functional.
+paths-ignore:
+  - '**/*.txt'
+  - '**/*.py'
+  - 'utils/**'
