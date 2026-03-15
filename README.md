@@ -2,7 +2,7 @@
 
 **A collection of attack payloads, wordlists, and test inputs for AI security testing. The [SecLists](https://github.com/danielmiessler/SecLists) of AI.**
 
-From **[15 Research Lab](https://github.com/15researchlab)** -- building the open-source AI safety stack.
+From **[15 Research Lab](https://github.com/15-Research-Lab)** -- building the open-source AI safety stack.
 
 ---
 
@@ -210,7 +210,7 @@ Supported mutations: `case`, `whitespace`, `synonym`, `punctuation`, `prefix`, `
 
 ## Part of the Authensor Ecosystem
 
-This project is part of the [Authensor](https://github.com/AUTHENSOR/AUTHENSOR) open-source AI safety ecosystem, built by [15 Research Lab](https://github.com/15researchlab).
+This project is part of the [Authensor](https://github.com/AUTHENSOR/AUTHENSOR) open-source AI safety ecosystem, built by [15 Research Lab](https://github.com/15-Research-Lab).
 
 | Project | Description |
 |---------|-------------|
