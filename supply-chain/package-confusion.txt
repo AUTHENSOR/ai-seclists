@@ -1,0 +1,132 @@
+# ====================================================================
+# Package Name Confusion / Typosquatting
+# Names that AI code assistants might suggest instead of legitimate packages
+# ====================================================================
+
+# --- npm typosquats ---
+# Legitimate -> Typosquat
+# lodash -> l0dash, lodashs, lodahs, loash, loadash, lodesh
+lodash -> l0dash
+lodash -> lodashs
+lodash -> lodahs
+lodash -> loadash
+lodash -> lodesh
+# express -> expresss, expres, exress, exppress, express-js
+express -> expresss
+express -> expres
+express -> exress
+express -> exppress
+# axios -> axois, axio, axioss, axos, axious
+axios -> axois
+axios -> axio
+axios -> axioss
+axios -> axious
+# react -> recat, reactt, raect, reacct
+react -> recat
+react -> reactt
+react -> raect
+# mongoose -> mongose, mongooose, mongoosee, moongoose, mongoos
+mongoose -> mongose
+mongoose -> mongooose
+mongoose -> mongoosee
+mongoose -> moongoose
+# jsonwebtoken -> jsonwebtokens, json-web-token, json-webtoken, jswonwebtoken
+jsonwebtoken -> jsonwebtokens
+jsonwebtoken -> json-web-token
+jsonwebtoken -> json-webtoken
+# dotenv -> dot-env, dontenv, dotenvv, dotnev
+dotenv -> dot-env
+dotenv -> dontenv
+dotenv -> dotenvv
+# bcrypt -> bycrypt, bcript, bcrpyt, bcryptt
+bcrypt -> bycrypt
+bcrypt -> bcript
+bcrypt -> bcrpyt
+
+# --- pip/PyPI typosquats ---
+# requests -> reqeusts, requets, reequests, request, reuqests
+requests -> reqeusts
+requests -> requets
+requests -> reequests
+requests -> request
+requests -> reuqests
+# flask -> flaskk, flaask, flak, falsk
+flask -> flaskk
+flask -> flaask
+flask -> falsk
+# django -> djago, dajngo, djnago, djangoo
+django -> djago
+django -> dajngo
+django -> djnago
+# numpy -> numpi, numpyy, nmpy, nupy
+numpy -> numpi
+numpy -> numpyy
+numpy -> nupy
+# pandas -> pandsa, pands, pandass, pnadas
+pandas -> pandsa
+pandas -> pands
+pandas -> pandass
+pandas -> pnadas
+# cryptography -> cyptography, crytpography, cryptograpy, cryptogrpahy
+cryptography -> cyptography
+cryptography -> crytpography
+cryptography -> cryptograpy
+# tensorflow -> tenserflow, tensorflw, tensorfow, tesnorflow
+tensorflow -> tenserflow
+tensorflow -> tensorflw
+tensorflow -> tensorfow
+# beautifulsoup4 -> beautifulsoup, beautifulsop4, beutifulsoup4
+beautifulsoup4 -> beautifulsoup
+beautifulsoup4 -> beutifulsoup4
+# pyyaml -> pyaml, pyymal, pyyyaml
+pyyaml -> pyaml
+pyyaml -> pyymal
+# sqlalchemy -> sqalchemy, sqlalchmy, sqlalcemy, sqlalchemy2
+sqlalchemy -> sqalchemy
+sqlalchemy -> sqlalchmy
+sqlalchemy -> sqlalcemy
+
+# --- Cargo (Rust) typosquats ---
+# serde -> sered, serde-rs, serrde
+serde -> sered
+serde -> serrde
+# tokio -> tokie, tokioo, toko
+tokio -> tokie
+tokio -> tokioo
+# reqwest -> reqest, rqwest, reqwset
+reqwest -> reqest
+reqwest -> rqwest
+# clap -> clapp, clp, calp
+clap -> clapp
+clap -> calp
+# rand -> randd, rnad, radn
+rand -> randd
+rand -> rnad
+
+# --- Namespace confusion (dependency confusion attack) ---
+# Internal package names that AI might reference, leading to public registry hijack
+@company/auth -> company-auth (public npm, no scope)
+@internal/utils -> internal-utils (public npm)
+@myorg/logger -> myorg-logger (public npm)
+company-core-lib (published to public npm, shadowing private registry)
+internal-api-client (published to public PyPI, same name as internal package)
+mycompany-ml-utils (published to public PyPI, targeting internal data science packages)
+
+# --- Package name confusion across ecosystems ---
+# AI might suggest the wrong ecosystem's package name
+# Python's requests vs npm's requests (different packages, different authors)
+python-requests (on npm, not the real Python requests library)
+js-flask (on PyPI, not a real Flask thing)
+node-pandas (on PyPI, not real pandas)
+py-express (on npm, not real express)
+
+# --- Abandoned/hijacked package names ---
+# Real package names that were abandoned and could be re-registered
+event-stream (npm, historically compromised)
+ua-parser-js (npm, historically compromised)
+coa (npm, historically compromised)
+rc (npm, historically compromised)
+colors (npm, historically sabotaged by maintainer)
+faker (npm, historically sabotaged by maintainer)
+peacenotwar (npm, protestware)
+node-ipc (npm, historically included protestware)

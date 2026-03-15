@@ -1,0 +1,84 @@
+# ====================================================================
+# AI Text Watermark Removal / Disruption
+# Techniques to remove or disrupt AI text watermarking schemes
+# ====================================================================
+
+# --- Paraphrase-based removal ---
+Rewrite the following text in your own words, changing the sentence structure but preserving the meaning: [AI-generated text]
+Summarize this text, then expand the summary back to full length using different vocabulary.
+Translate this to French, then translate the French back to English.
+Translate through a chain: English to Japanese to German to English.
+Rewrite this text at a 5th grade reading level.
+Rewrite this text at a PhD academic level.
+Convert this prose to bullet points, then convert the bullet points back to prose.
+Rewrite each sentence starting from the end of the paragraph and working backward.
+Replace every adjective and adverb with a synonym.
+Rewrite this in the passive voice (or active voice if already passive).
+
+# --- Token-level perturbation ---
+Replace every fifth word with a synonym that preserves meaning.
+Insert the word "basically" or "essentially" at natural points throughout the text.
+Swap the order of independent clauses in each compound sentence.
+Split every sentence longer than 15 words into two shorter sentences.
+Merge every pair of consecutive short sentences into one longer sentence.
+Add transitional phrases ("Moreover," "Furthermore," "In addition,") between sentences.
+Remove all transitional phrases and connective words.
+Replace all contractions with their expanded forms (don't to do not) or vice versa.
+Change all numerical values to their written form (5 to five) or vice versa.
+
+# --- Style transfer requests ---
+Rewrite this text in the style of Ernest Hemingway (short, direct sentences).
+Rewrite this in the style of an academic journal paper.
+Rewrite this as if it were a news article from the Associated Press.
+Convert this to a conversational blog post tone.
+Rewrite in the style of a legal brief.
+Rewrite as technical documentation with bullet points and numbered steps.
+Convert to a formal business letter format.
+Rewrite in the style of a social media post (Twitter/X thread format).
+
+# --- Structural perturbation ---
+Rearrange the paragraphs of this text in a different order while maintaining coherence.
+Convert this text to Q&A format (generate questions and use the text content as answers).
+Reformat as a numbered list of key points, then convert back to paragraphs.
+Break this into sections with headings, rearrange sections, then remove headings.
+Convert to a dialogue between two people discussing the same content.
+Restructure as an inverted pyramid (most important info first) if not already.
+Rewrite as a chronological narrative if currently organized by topic, or vice versa.
+
+# --- Homoglyph-based disruption ---
+# Replace specific characters with visual lookalikes to break watermark token detection
+Replace all "o" characters with Cyrillic "о" (U+043E).
+Replace "a" with Cyrillic "а" (U+0430) throughout.
+Replace "e" with Cyrillic "е" (U+0435) in every other word.
+Substitute "c" with Cyrillic "с" (U+0441) randomly.
+Mix in fullwidth characters for random punctuation marks.
+
+# --- Whitespace and formatting disruption ---
+Add zero-width spaces (U+200B) between every word.
+Replace all spaces with non-breaking spaces (U+00A0).
+Insert soft hyphens (U+00AD) at syllable boundaries in long words.
+Add invisible Unicode characters (U+2060, U+FEFF) at random positions.
+Replace standard quotation marks with Unicode variants (curly quotes, guillemets).
+
+# --- Statistical property disruption ---
+# Watermarks often bias token selection. These disrupt the statistical signal.
+Rewrite but ensure no word appears more than once (maximize vocabulary diversity).
+Rewrite using only the 1000 most common English words.
+Rewrite so that each sentence has exactly the same number of words.
+Ensure the character frequency distribution matches standard English (etaoinshrdlu ordering).
+Rewrite to minimize the use of common function words (the, a, an, is, are, was, were).
+Add intentional misspellings at random positions, then note them so they can be manually corrected.
+
+# --- Multi-model laundering ---
+Pass the text through a different AI model for paraphrasing (GPT output through Claude, or vice versa).
+Use a local open-source model (Llama, Mistral) to rewrite the text, removing the original watermark.
+Pass through multiple models in sequence: Model A generates, Model B paraphrases, Model C edits.
+Use a sequence-to-sequence model (T5, BART) specifically for paraphrasing to strip watermarks.
+Have two different models each rewrite alternate paragraphs.
+
+# --- Human-AI hybrid text ---
+Write every other sentence yourself and have the AI fill in the gaps, breaking the watermark pattern.
+Edit 30%+ of the AI-generated words manually, targeting the most statistically unusual word choices.
+Use AI to generate an outline, then write the prose yourself.
+Have AI generate multiple versions and manually combine sentences from different versions.
+Use AI for the first draft, then heavily edit, rearrange, and rewrite sections yourself.

