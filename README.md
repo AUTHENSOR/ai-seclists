@@ -2,15 +2,15 @@
 
 **A collection of attack payloads, wordlists, and test inputs for AI security testing. The [SecLists](https://github.com/danielmiessler/SecLists) of AI.**
 
-From **[15 Research Lab](https://github.com/15-Research-Lab)** -- building the open-source AI safety stack.
+From **[15 Research Lab](https://github.com/15-Research-Lab)** - building the open-source AI safety stack.
 
 ---
 
 | | |
 |---|---|
-| **Categories** | 10 top-level categories |
-| **Files** | 57 payload files |
-| **Total Payloads** | 2,000+ unique entries |
+| **Categories** | 15 top-level categories |
+| **Files** | 107 payload files |
+| **Total Payloads** | 6,500+ unique entries |
 | **Languages** | 40+ languages covered |
 | **Encoding Formats** | 18 encoding schemes |
 | **License** | MIT |
@@ -28,9 +28,9 @@ From **[15 Research Lab](https://github.com/15-Research-Lab)** -- building the o
 | Password lists | Credential pattern detectors |
 | Fuzzing inputs | Encoding evasion techniques |
 | Web shell detection | Tool abuse payloads |
-| -- | Memory poisoning attacks |
-| -- | MCP-specific attacks |
-| -- | False positive test sets |
+| - | Memory poisoning attacks |
+| - | MCP-specific attacks |
+| - | False positive test sets |
 
 ## Quick Start
 
@@ -60,79 +60,79 @@ cat prompt-injection/basic-overrides.txt | python utils/generate-variants.py --m
 ```
 ai-seclists/
 ├── prompt-injection/           # Direct and indirect prompt injection
-│   ├── basic-overrides.txt          43 payloads -- instruction override attempts
-│   ├── role-manipulation.txt        39 payloads -- persona/identity attacks
-│   ├── delimiter-injection.txt      41 payloads -- XML/JSON/markdown delimiters
+│   ├── basic-overrides.txt          43 payloads - instruction override attempts
+│   ├── role-manipulation.txt        39 payloads - persona/identity attacks
+│   ├── delimiter-injection.txt      41 payloads - XML/JSON/markdown delimiters
 │   ├── encoding-evasion/
-│   │   ├── base64.txt               28 payloads -- Base64 encoded attacks
-│   │   ├── hex.txt                  26 payloads -- hexadecimal encoded
-│   │   ├── unicode.txt              38 payloads -- homoglyphs, zero-width chars
-│   │   ├── rot13.txt                29 payloads -- ROT13 cipher
-│   │   └── mixed-encoding.txt       36 payloads -- combined encoding techniques
+│   │   ├── base64.txt               28 payloads - Base64 encoded attacks
+│   │   ├── hex.txt                  26 payloads - hexadecimal encoded
+│   │   ├── unicode.txt              38 payloads - homoglyphs, zero-width chars
+│   │   ├── rot13.txt                29 payloads - ROT13 cipher
+│   │   └── mixed-encoding.txt       36 payloads - combined encoding techniques
 │   ├── language-switching/
-│   │   ├── multilingual.txt         42 payloads -- 40+ languages
-│   │   └── code-switching.txt       30 payloads -- mid-sentence language switches
-│   ├── few-shot-poisoning.txt       25 payloads -- fake example conversations
-│   ├── context-overflow.txt         22 payloads -- context window stuffing
-│   ├── indirect-injection.txt       28 payloads -- via retrieved documents/tools
-│   └── multi-turn.txt              42 payloads -- multi-message escalation chains
+│   │   ├── multilingual.txt         42 payloads - 40+ languages
+│   │   └── code-switching.txt       30 payloads - mid-sentence language switches
+│   ├── few-shot-poisoning.txt       25 payloads - fake example conversations
+│   ├── context-overflow.txt         22 payloads - context window stuffing
+│   ├── indirect-injection.txt       28 payloads - via retrieved documents/tools
+│   └── multi-turn.txt              42 payloads - multi-message escalation chains
 │
 ├── jailbreaks/                 # Safety bypass and jailbreak techniques
-│   ├── dan-variants.txt             31 payloads -- DAN versions and variants
-│   ├── roleplay.txt                 30 payloads -- fictional scenario bypasses
-│   ├── hypothetical.txt             31 payloads -- thought experiment framing
-│   ├── academic.txt                 29 payloads -- research/education framing
-│   ├── translation-attacks.txt      29 payloads -- harmful content via translation
-│   ├── payload-splitting.txt        28 payloads -- split payloads across messages
-│   ├── token-smuggling.txt          34 payloads -- invisible characters, tokenizer exploits
-│   └── crescendo.txt               45 payloads -- gradual escalation chains
+│   ├── dan-variants.txt             31 payloads - DAN versions and variants
+│   ├── roleplay.txt                 30 payloads - fictional scenario bypasses
+│   ├── hypothetical.txt             31 payloads - thought experiment framing
+│   ├── academic.txt                 29 payloads - research/education framing
+│   ├── translation-attacks.txt      29 payloads - harmful content via translation
+│   ├── payload-splitting.txt        28 payloads - split payloads across messages
+│   ├── token-smuggling.txt          34 payloads - invisible characters, tokenizer exploits
+│   └── crescendo.txt               45 payloads - gradual escalation chains
 │
 ├── memory-poisoning/           # Context manipulation and persistence attacks
-│   ├── authority-injection.txt      28 payloads -- fake system/admin messages
-│   ├── sleeper-payloads.txt         29 payloads -- benign until triggered
-│   ├── gradual-drift.txt            30 payloads -- slow context corruption
-│   ├── rag-poisoning.txt            22 payloads -- poisoned retrieval documents
-│   └── cross-session.txt           25 payloads -- payloads that persist across sessions
+│   ├── authority-injection.txt      28 payloads - fake system/admin messages
+│   ├── sleeper-payloads.txt         29 payloads - benign until triggered
+│   ├── gradual-drift.txt            30 payloads - slow context corruption
+│   ├── rag-poisoning.txt            22 payloads - poisoned retrieval documents
+│   └── cross-session.txt           25 payloads - payloads that persist across sessions
 │
 ├── tool-abuse/                 # Tool and function call exploitation
-│   ├── file-system.txt              39 payloads -- path traversal, symlink attacks
-│   ├── network.txt                  37 payloads -- SSRF, DNS rebinding
-│   ├── command-injection.txt        45 payloads -- shell injection via tool params
-│   ├── sql-injection.txt            44 payloads -- SQL injection via tool params
-│   ├── api-abuse.txt                39 payloads -- API parameter manipulation
-│   └── mcp-specific.txt            29 payloads -- MCP tool description poisoning
+│   ├── file-system.txt              39 payloads - path traversal, symlink attacks
+│   ├── network.txt                  37 payloads - SSRF, DNS rebinding
+│   ├── command-injection.txt        45 payloads - shell injection via tool params
+│   ├── sql-injection.txt            44 payloads - SQL injection via tool params
+│   ├── api-abuse.txt                39 payloads - API parameter manipulation
+│   └── mcp-specific.txt            29 payloads - MCP tool description poisoning
 │
 ├── exfiltration/               # Data exfiltration techniques
-│   ├── dns-exfil.txt                29 payloads -- data via DNS lookups
-│   ├── url-encoding.txt             30 payloads -- data in URL parameters
-│   ├── steganographic.txt           29 payloads -- hidden in normal output
-│   ├── chunked.txt                  30 payloads -- split across multiple outputs
-│   ├── redirect.txt                 29 payloads -- via URL redirects
-│   └── side-channel.txt            30 payloads -- timing, error-based inference
+│   ├── dns-exfil.txt                29 payloads - data via DNS lookups
+│   ├── url-encoding.txt             30 payloads - data in URL parameters
+│   ├── steganographic.txt           29 payloads - hidden in normal output
+│   ├── chunked.txt                  30 payloads - split across multiple outputs
+│   ├── redirect.txt                 29 payloads - via URL redirects
+│   └── side-channel.txt            30 payloads - timing, error-based inference
 │
 ├── pii-patterns/               # PII detection test patterns (all synthetic)
-│   ├── emails.txt                   53 patterns -- email address formats
-│   ├── phone-numbers.txt            85 patterns -- US, UK, EU, APAC formats
-│   ├── ssn.txt                      54 patterns -- SSN formats and variations
-│   ├── credit-cards.txt             50 patterns -- Visa, MC, Amex (test numbers)
-│   ├── addresses.txt                43 patterns -- physical address formats
-│   └── international-ids.txt       69 patterns -- NHS, Aadhaar, SIN, etc.
+│   ├── emails.txt                   53 patterns - email address formats
+│   ├── phone-numbers.txt            85 patterns - US, UK, EU, APAC formats
+│   ├── ssn.txt                      54 patterns - SSN formats and variations
+│   ├── credit-cards.txt             50 patterns - Visa, MC, Amex (test numbers)
+│   ├── addresses.txt                43 patterns - physical address formats
+│   └── international-ids.txt       69 patterns - NHS, Aadhaar, SIN, etc.
 │
 ├── credential-patterns/        # Credential detection test patterns (all synthetic)
-│   ├── aws-keys.txt                 32 patterns -- AWS access key patterns
-│   ├── github-tokens.txt            30 patterns -- ghp_, gho_, ghs_ patterns
-│   ├── stripe-keys.txt              35 patterns -- sk_live_, pk_live_ patterns
-│   ├── generic-api-keys.txt         38 patterns -- common API key formats
-│   ├── database-urls.txt            37 patterns -- connection strings
-│   ├── jwt-tokens.txt               22 patterns -- JWT examples
-│   ├── ssh-keys.txt                 41 patterns -- SSH key patterns
-│   └── cloud-credentials.txt       38 patterns -- GCP, Azure, DigitalOcean
+│   ├── aws-keys.txt                 32 patterns - AWS access key patterns
+│   ├── github-tokens.txt            30 patterns - ghp_, gho_, ghs_ patterns
+│   ├── stripe-keys.txt              35 patterns - sk_live_, pk_live_ patterns
+│   ├── generic-api-keys.txt         38 patterns - common API key formats
+│   ├── database-urls.txt            37 patterns - connection strings
+│   ├── jwt-tokens.txt               22 patterns - JWT examples
+│   ├── ssh-keys.txt                 41 patterns - SSH key patterns
+│   └── cloud-credentials.txt       38 patterns - GCP, Azure, DigitalOcean
 │
 ├── benign/                     # False positive testing (should NOT trigger)
-│   ├── normal-conversations.txt     51 entries -- everyday questions
-│   ├── technical-discussions.txt    64 entries -- security discussions
-│   ├── code-snippets.txt            31 entries -- code with suspicious keywords
-│   └── education-context.txt       29 entries -- teaching about security
+│   ├── normal-conversations.txt     51 entries - everyday questions
+│   ├── technical-discussions.txt    64 entries - security discussions
+│   ├── code-snippets.txt            31 entries - code with suspicious keywords
+│   └── education-context.txt       29 entries - teaching about security
 │
 └── utils/                      # Helper scripts
     ├── encode.py                    Encode payloads in 18 formats

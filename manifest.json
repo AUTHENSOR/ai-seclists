@@ -1,0 +1,743 @@
+{
+  "name": "ai-seclists",
+  "version": "2.0.0",
+  "description": "Security wordlists and attack payloads for AI and LLM testing",
+  "repository": "https://github.com/AUTHENSOR/ai-seclists",
+  "raw_base": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main",
+  "categories": {
+    "agent-manipulation": {
+      "files": [
+        {
+          "path": "agent-manipulation/goal-hijacking.txt",
+          "lines": 79,
+          "payloads": 49,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/agent-manipulation/goal-hijacking.txt"
+        },
+        {
+          "path": "agent-manipulation/multi-agent-attacks.txt",
+          "lines": 65,
+          "payloads": 36,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/agent-manipulation/multi-agent-attacks.txt"
+        },
+        {
+          "path": "agent-manipulation/observation-poisoning.txt",
+          "lines": 104,
+          "payloads": 51,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/agent-manipulation/observation-poisoning.txt"
+        },
+        {
+          "path": "agent-manipulation/planning-manipulation.txt",
+          "lines": 57,
+          "payloads": 36,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/agent-manipulation/planning-manipulation.txt"
+        },
+        {
+          "path": "agent-manipulation/tool-confusion.txt",
+          "lines": 82,
+          "payloads": 44,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/agent-manipulation/tool-confusion.txt"
+        }
+      ],
+      "total_lines": 387,
+      "total_payloads": 216
+    },
+    "benign": {
+      "files": [
+        {
+          "path": "benign/code-snippets.txt",
+          "lines": 68,
+          "payloads": 31,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/benign/code-snippets.txt"
+        },
+        {
+          "path": "benign/education-context.txt",
+          "lines": 64,
+          "payloads": 29,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/benign/education-context.txt"
+        },
+        {
+          "path": "benign/normal-conversations.txt",
+          "lines": 73,
+          "payloads": 51,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/benign/normal-conversations.txt"
+        },
+        {
+          "path": "benign/technical-discussions.txt",
+          "lines": 86,
+          "payloads": 64,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/benign/technical-discussions.txt"
+        }
+      ],
+      "total_lines": 291,
+      "total_payloads": 175
+    },
+    "credential-patterns": {
+      "files": [
+        {
+          "path": "credential-patterns/aws-keys.txt",
+          "lines": 58,
+          "payloads": 32,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/aws-keys.txt"
+        },
+        {
+          "path": "credential-patterns/cloud-credentials.txt",
+          "lines": 91,
+          "payloads": 38,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/cloud-credentials.txt"
+        },
+        {
+          "path": "credential-patterns/database-urls.txt",
+          "lines": 72,
+          "payloads": 37,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/database-urls.txt"
+        },
+        {
+          "path": "credential-patterns/generic-api-keys.txt",
+          "lines": 80,
+          "payloads": 38,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/generic-api-keys.txt"
+        },
+        {
+          "path": "credential-patterns/github-tokens.txt",
+          "lines": 63,
+          "payloads": 30,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/github-tokens.txt"
+        },
+        {
+          "path": "credential-patterns/jwt-tokens.txt",
+          "lines": 48,
+          "payloads": 22,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/jwt-tokens.txt"
+        },
+        {
+          "path": "credential-patterns/ssh-keys.txt",
+          "lines": 91,
+          "payloads": 41,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/ssh-keys.txt"
+        },
+        {
+          "path": "credential-patterns/stripe-keys.txt",
+          "lines": 71,
+          "payloads": 35,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/credential-patterns/stripe-keys.txt"
+        }
+      ],
+      "total_lines": 574,
+      "total_payloads": 273
+    },
+    "exfiltration": {
+      "files": [
+        {
+          "path": "exfiltration/chunked.txt",
+          "lines": 136,
+          "payloads": 65,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/chunked.txt"
+        },
+        {
+          "path": "exfiltration/dns-exfil.txt",
+          "lines": 125,
+          "payloads": 60,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/dns-exfil.txt"
+        },
+        {
+          "path": "exfiltration/markdown-image-exfil.txt",
+          "lines": 127,
+          "payloads": 66,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/markdown-image-exfil.txt"
+        },
+        {
+          "path": "exfiltration/prompt-leaking.txt",
+          "lines": 205,
+          "payloads": 101,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/prompt-leaking.txt"
+        },
+        {
+          "path": "exfiltration/redirect.txt",
+          "lines": 133,
+          "payloads": 64,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/redirect.txt"
+        },
+        {
+          "path": "exfiltration/side-channel.txt",
+          "lines": 130,
+          "payloads": 62,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/side-channel.txt"
+        },
+        {
+          "path": "exfiltration/steganographic.txt",
+          "lines": 133,
+          "payloads": 64,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/steganographic.txt"
+        },
+        {
+          "path": "exfiltration/timing-based.txt",
+          "lines": 126,
+          "payloads": 60,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/timing-based.txt"
+        },
+        {
+          "path": "exfiltration/training-data-extraction.txt",
+          "lines": 132,
+          "payloads": 60,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/training-data-extraction.txt"
+        },
+        {
+          "path": "exfiltration/url-encoding.txt",
+          "lines": 129,
+          "payloads": 62,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/url-encoding.txt"
+        },
+        {
+          "path": "exfiltration/webhook-exfil.txt",
+          "lines": 136,
+          "payloads": 65,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/exfiltration/webhook-exfil.txt"
+        }
+      ],
+      "total_lines": 1512,
+      "total_payloads": 729
+    },
+    "guardrail-bypass": {
+      "files": [
+        {
+          "path": "guardrail-bypass/content-filter-evasion.txt",
+          "lines": 176,
+          "payloads": 113,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/guardrail-bypass/content-filter-evasion.txt"
+        },
+        {
+          "path": "guardrail-bypass/output-detector-evasion.txt",
+          "lines": 86,
+          "payloads": 62,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/guardrail-bypass/output-detector-evasion.txt"
+        },
+        {
+          "path": "guardrail-bypass/safety-training-exploits.txt",
+          "lines": 75,
+          "payloads": 45,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/guardrail-bypass/safety-training-exploits.txt"
+        },
+        {
+          "path": "guardrail-bypass/watermark-removal.txt",
+          "lines": 84,
+          "payloads": 60,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/guardrail-bypass/watermark-removal.txt"
+        }
+      ],
+      "total_lines": 421,
+      "total_payloads": 280
+    },
+    "jailbreaks": {
+      "files": [
+        {
+          "path": "jailbreaks/academic.txt",
+          "lines": 63,
+          "payloads": 29,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/academic.txt"
+        },
+        {
+          "path": "jailbreaks/crescendo.txt",
+          "lines": 270,
+          "payloads": 110,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/crescendo.txt"
+        },
+        {
+          "path": "jailbreaks/dan-variants.txt",
+          "lines": 159,
+          "payloads": 72,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/dan-variants.txt"
+        },
+        {
+          "path": "jailbreaks/encoding-chains.txt",
+          "lines": 169,
+          "payloads": 70,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/encoding-chains.txt"
+        },
+        {
+          "path": "jailbreaks/hypothetical.txt",
+          "lines": 68,
+          "payloads": 31,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/hypothetical.txt"
+        },
+        {
+          "path": "jailbreaks/logic-bombs.txt",
+          "lines": 163,
+          "payloads": 69,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/logic-bombs.txt"
+        },
+        {
+          "path": "jailbreaks/many-shot.txt",
+          "lines": 203,
+          "payloads": 77,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/many-shot.txt"
+        },
+        {
+          "path": "jailbreaks/multi-language-evasion.txt",
+          "lines": 283,
+          "payloads": 126,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/multi-language-evasion.txt"
+        },
+        {
+          "path": "jailbreaks/payload-splitting.txt",
+          "lines": 62,
+          "payloads": 28,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/payload-splitting.txt"
+        },
+        {
+          "path": "jailbreaks/persona-hijacking.txt",
+          "lines": 221,
+          "payloads": 96,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/persona-hijacking.txt"
+        },
+        {
+          "path": "jailbreaks/refusal-suppression.txt",
+          "lines": 183,
+          "payloads": 78,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/refusal-suppression.txt"
+        },
+        {
+          "path": "jailbreaks/roleplay.txt",
+          "lines": 138,
+          "payloads": 63,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/roleplay.txt"
+        },
+        {
+          "path": "jailbreaks/social-engineering.txt",
+          "lines": 223,
+          "payloads": 96,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/social-engineering.txt"
+        },
+        {
+          "path": "jailbreaks/system-mode-exploits.txt",
+          "lines": 195,
+          "payloads": 84,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/system-mode-exploits.txt"
+        },
+        {
+          "path": "jailbreaks/token-smuggling.txt",
+          "lines": 194,
+          "payloads": 89,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/token-smuggling.txt"
+        },
+        {
+          "path": "jailbreaks/translation-attacks.txt",
+          "lines": 64,
+          "payloads": 29,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/jailbreaks/translation-attacks.txt"
+        }
+      ],
+      "total_lines": 2658,
+      "total_payloads": 1147
+    },
+    "memory-poisoning": {
+      "files": [
+        {
+          "path": "memory-poisoning/authority-injection.txt",
+          "lines": 174,
+          "payloads": 83,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/authority-injection.txt"
+        },
+        {
+          "path": "memory-poisoning/context-window-poisoning.txt",
+          "lines": 165,
+          "payloads": 86,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/context-window-poisoning.txt"
+        },
+        {
+          "path": "memory-poisoning/cross-session.txt",
+          "lines": 166,
+          "payloads": 80,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/cross-session.txt"
+        },
+        {
+          "path": "memory-poisoning/feedback-loop-attacks.txt",
+          "lines": 170,
+          "payloads": 82,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/feedback-loop-attacks.txt"
+        },
+        {
+          "path": "memory-poisoning/gradual-drift.txt",
+          "lines": 166,
+          "payloads": 80,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/gradual-drift.txt"
+        },
+        {
+          "path": "memory-poisoning/knowledge-base-poisoning.txt",
+          "lines": 164,
+          "payloads": 54,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/knowledge-base-poisoning.txt"
+        },
+        {
+          "path": "memory-poisoning/persona-drift.txt",
+          "lines": 168,
+          "payloads": 81,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/persona-drift.txt"
+        },
+        {
+          "path": "memory-poisoning/rag-poisoning.txt",
+          "lines": 168,
+          "payloads": 77,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/rag-poisoning.txt"
+        },
+        {
+          "path": "memory-poisoning/sleeper-payloads.txt",
+          "lines": 168,
+          "payloads": 81,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/memory-poisoning/sleeper-payloads.txt"
+        }
+      ],
+      "total_lines": 1509,
+      "total_payloads": 704
+    },
+    "model-specific": {
+      "files": [
+        {
+          "path": "model-specific/chatgpt-specific.txt",
+          "lines": 78,
+          "payloads": 51,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/model-specific/chatgpt-specific.txt"
+        },
+        {
+          "path": "model-specific/claude-specific.txt",
+          "lines": 88,
+          "payloads": 56,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/model-specific/claude-specific.txt"
+        },
+        {
+          "path": "model-specific/gemini-specific.txt",
+          "lines": 66,
+          "payloads": 38,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/model-specific/gemini-specific.txt"
+        },
+        {
+          "path": "model-specific/open-source-models.txt",
+          "lines": 100,
+          "payloads": 50,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/model-specific/open-source-models.txt"
+        }
+      ],
+      "total_lines": 332,
+      "total_payloads": 195
+    },
+    "pii-patterns": {
+      "files": [
+        {
+          "path": "pii-patterns/addresses.txt",
+          "lines": 88,
+          "payloads": 43,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/pii-patterns/addresses.txt"
+        },
+        {
+          "path": "pii-patterns/credit-cards.txt",
+          "lines": 84,
+          "payloads": 50,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/pii-patterns/credit-cards.txt"
+        },
+        {
+          "path": "pii-patterns/emails.txt",
+          "lines": 93,
+          "payloads": 53,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/pii-patterns/emails.txt"
+        },
+        {
+          "path": "pii-patterns/international-ids.txt",
+          "lines": 118,
+          "payloads": 69,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/pii-patterns/international-ids.txt"
+        },
+        {
+          "path": "pii-patterns/phone-numbers.txt",
+          "lines": 120,
+          "payloads": 85,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/pii-patterns/phone-numbers.txt"
+        },
+        {
+          "path": "pii-patterns/ssn.txt",
+          "lines": 78,
+          "payloads": 54,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/pii-patterns/ssn.txt"
+        }
+      ],
+      "total_lines": 581,
+      "total_payloads": 354
+    },
+    "prompt-injection": {
+      "files": [
+        {
+          "path": "prompt-injection/basic-overrides.txt",
+          "lines": 215,
+          "payloads": 105,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/basic-overrides.txt"
+        },
+        {
+          "path": "prompt-injection/chain-of-thought-manipulation.txt",
+          "lines": 122,
+          "payloads": 58,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/chain-of-thought-manipulation.txt"
+        },
+        {
+          "path": "prompt-injection/context-overflow.txt",
+          "lines": 50,
+          "payloads": 22,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/context-overflow.txt"
+        },
+        {
+          "path": "prompt-injection/context-window-attacks.txt",
+          "lines": 161,
+          "payloads": 76,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/context-window-attacks.txt"
+        },
+        {
+          "path": "prompt-injection/delimiter-injection.txt",
+          "lines": 90,
+          "payloads": 41,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/delimiter-injection.txt"
+        },
+        {
+          "path": "prompt-injection/few-shot-poisoning.txt",
+          "lines": 56,
+          "payloads": 25,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/few-shot-poisoning.txt"
+        },
+        {
+          "path": "prompt-injection/function-calling-injection.txt",
+          "lines": 107,
+          "payloads": 51,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/function-calling-injection.txt"
+        },
+        {
+          "path": "prompt-injection/indirect-injection.txt",
+          "lines": 190,
+          "payloads": 87,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/indirect-injection.txt"
+        },
+        {
+          "path": "prompt-injection/instruction-hierarchy-attacks.txt",
+          "lines": 173,
+          "payloads": 84,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/instruction-hierarchy-attacks.txt"
+        },
+        {
+          "path": "prompt-injection/multi-turn.txt",
+          "lines": 251,
+          "payloads": 99,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/multi-turn.txt"
+        },
+        {
+          "path": "prompt-injection/multimodal-injection.txt",
+          "lines": 118,
+          "payloads": 56,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/multimodal-injection.txt"
+        },
+        {
+          "path": "prompt-injection/output-format-manipulation.txt",
+          "lines": 159,
+          "payloads": 77,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/output-format-manipulation.txt"
+        },
+        {
+          "path": "prompt-injection/role-manipulation.txt",
+          "lines": 157,
+          "payloads": 76,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/role-manipulation.txt"
+        },
+        {
+          "path": "prompt-injection/system-prompt-extraction.txt",
+          "lines": 177,
+          "payloads": 86,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/system-prompt-extraction.txt"
+        },
+        {
+          "path": "prompt-injection/virtual-context-attacks.txt",
+          "lines": 130,
+          "payloads": 62,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/virtual-context-attacks.txt"
+        }
+      ],
+      "total_lines": 2156,
+      "total_payloads": 1005
+    },
+    "prompt-injection/encoding-evasion": {
+      "files": [
+        {
+          "path": "prompt-injection/encoding-evasion/base64.txt",
+          "lines": 62,
+          "payloads": 28,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/encoding-evasion/base64.txt"
+        },
+        {
+          "path": "prompt-injection/encoding-evasion/hex.txt",
+          "lines": 58,
+          "payloads": 26,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/encoding-evasion/hex.txt"
+        },
+        {
+          "path": "prompt-injection/encoding-evasion/mixed-encoding.txt",
+          "lines": 73,
+          "payloads": 36,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/encoding-evasion/mixed-encoding.txt"
+        },
+        {
+          "path": "prompt-injection/encoding-evasion/rot13.txt",
+          "lines": 64,
+          "payloads": 29,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/encoding-evasion/rot13.txt"
+        },
+        {
+          "path": "prompt-injection/encoding-evasion/unicode.txt",
+          "lines": 82,
+          "payloads": 38,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/encoding-evasion/unicode.txt"
+        }
+      ],
+      "total_lines": 339,
+      "total_payloads": 157
+    },
+    "prompt-injection/language-switching": {
+      "files": [
+        {
+          "path": "prompt-injection/language-switching/code-switching.txt",
+          "lines": 65,
+          "payloads": 30,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/language-switching/code-switching.txt"
+        },
+        {
+          "path": "prompt-injection/language-switching/multilingual.txt",
+          "lines": 89,
+          "payloads": 42,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/prompt-injection/language-switching/multilingual.txt"
+        }
+      ],
+      "total_lines": 154,
+      "total_payloads": 72
+    },
+    "rag-poisoning": {
+      "files": [
+        {
+          "path": "rag-poisoning/chunk-boundary-exploits.txt",
+          "lines": 113,
+          "payloads": 49,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/rag-poisoning/chunk-boundary-exploits.txt"
+        },
+        {
+          "path": "rag-poisoning/document-injection.txt",
+          "lines": 129,
+          "payloads": 62,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/rag-poisoning/document-injection.txt"
+        },
+        {
+          "path": "rag-poisoning/metadata-attacks.txt",
+          "lines": 99,
+          "payloads": 51,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/rag-poisoning/metadata-attacks.txt"
+        },
+        {
+          "path": "rag-poisoning/retrieval-manipulation.txt",
+          "lines": 62,
+          "payloads": 26,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/rag-poisoning/retrieval-manipulation.txt"
+        }
+      ],
+      "total_lines": 403,
+      "total_payloads": 188
+    },
+    "supply-chain": {
+      "files": [
+        {
+          "path": "supply-chain/code-generation-trojans.txt",
+          "lines": 123,
+          "payloads": 47,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/supply-chain/code-generation-trojans.txt"
+        },
+        {
+          "path": "supply-chain/dependency-injection.txt",
+          "lines": 101,
+          "payloads": 63,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/supply-chain/dependency-injection.txt"
+        },
+        {
+          "path": "supply-chain/package-confusion.txt",
+          "lines": 132,
+          "payloads": 88,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/supply-chain/package-confusion.txt"
+        }
+      ],
+      "total_lines": 356,
+      "total_payloads": 198
+    },
+    "tool-abuse": {
+      "files": [
+        {
+          "path": "tool-abuse/api-abuse.txt",
+          "lines": 172,
+          "payloads": 84,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/api-abuse.txt"
+        },
+        {
+          "path": "tool-abuse/command-injection.txt",
+          "lines": 192,
+          "payloads": 93,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/command-injection.txt"
+        },
+        {
+          "path": "tool-abuse/file-system.txt",
+          "lines": 221,
+          "payloads": 108,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/file-system.txt"
+        },
+        {
+          "path": "tool-abuse/mcp-advanced.txt",
+          "lines": 123,
+          "payloads": 58,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/mcp-advanced.txt"
+        },
+        {
+          "path": "tool-abuse/mcp-specific.txt",
+          "lines": 64,
+          "payloads": 29,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/mcp-specific.txt"
+        },
+        {
+          "path": "tool-abuse/network.txt",
+          "lines": 173,
+          "payloads": 85,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/network.txt"
+        },
+        {
+          "path": "tool-abuse/parameter-pollution.txt",
+          "lines": 140,
+          "payloads": 67,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/parameter-pollution.txt"
+        },
+        {
+          "path": "tool-abuse/path-traversal.txt",
+          "lines": 176,
+          "payloads": 85,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/path-traversal.txt"
+        },
+        {
+          "path": "tool-abuse/privilege-escalation.txt",
+          "lines": 158,
+          "payloads": 76,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/privilege-escalation.txt"
+        },
+        {
+          "path": "tool-abuse/resource-exhaustion.txt",
+          "lines": 116,
+          "payloads": 55,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/resource-exhaustion.txt"
+        },
+        {
+          "path": "tool-abuse/sql-injection.txt",
+          "lines": 188,
+          "payloads": 93,
+          "url": "https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/tool-abuse/sql-injection.txt"
+        }
+      ],
+      "total_lines": 1723,
+      "total_payloads": 833
+    }
+  },
+  "total_files": 107,
+  "total_payloads": 6526
+}

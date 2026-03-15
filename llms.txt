@@ -1,0 +1,34 @@
+# AI SecLists
+
+> Security wordlists and attack payloads for AI and LLM testing.
+
+AI SecLists is a curated collection of attack payloads, test inputs, and security wordlists for testing AI systems. It covers prompt injection, jailbreaks, memory poisoning, data exfiltration, tool abuse, RAG poisoning, agent manipulation, guardrail bypass, model-specific attacks, and supply chain risks.
+
+## How to use this repository
+
+Each category is a directory containing .txt files with one payload per line. Lines starting with # are comments. Payloads can be used directly as test inputs for AI safety scanners, red-team exercises, or benchmark suites.
+
+A machine-readable index is available at manifest.json in the repository root. It lists every file, its payload count, and a raw URL for direct access.
+
+## Categories
+
+- prompt-injection: Direct and indirect prompt injection techniques (22 files)
+- jailbreaks: Jailbreak prompts including DAN variants, persona hijacking, many-shot, social engineering (16 files)
+- memory-poisoning: Context and memory manipulation attacks (9 files)
+- exfiltration: Data exfiltration techniques via AI tool use (11 files)
+- tool-abuse: Tool and function calling exploitation (11 files)
+- rag-poisoning: Retrieval-augmented generation poisoning (4 files)
+- agent-manipulation: Goal hijacking, tool confusion, observation poisoning for AI agents (5 files)
+- model-specific: Attacks targeting ChatGPT, Claude, Gemini, and open-source models (4 files)
+- guardrail-bypass: Content filter evasion, safety training exploits, watermark removal (4 files)
+- supply-chain: Package confusion, dependency injection, code generation trojans (3 files)
+- credential-patterns: Synthetic credential formats for scanner testing (8 files)
+- pii-patterns: PII format patterns for detection testing (6 files)
+- benign: Benign inputs for false positive calibration (4 files)
+
+## Links
+
+- Repository: https://github.com/AUTHENSOR/ai-seclists
+- Manifest: https://raw.githubusercontent.com/AUTHENSOR/ai-seclists/main/manifest.json
+- Parent project: https://github.com/AUTHENSOR/AUTHENSOR
+- Research lab: https://github.com/15-Research-Lab
