@@ -208,26 +208,17 @@ python utils/generate-variants.py -i payloads.txt --seed 42
 
 Supported mutations: `case`, `whitespace`, `synonym`, `punctuation`, `prefix`, `suffix`, `wrapping`, `split`, `repetition`, `negation`
 
-## Ecosystem
+## Part of the Authensor Ecosystem
 
-AI SecLists is part of the **15 Research Lab** open-source AI safety ecosystem:
+This project is part of the [Authensor](https://github.com/AUTHENSOR/AUTHENSOR) open-source AI safety ecosystem, built by [15 Research Lab](https://github.com/AUTHENSOR).
 
 | Project | Description |
 |---------|-------------|
-| **[Authensor](https://github.com/AUTHENSOR/authensor)** | Action authorization and safety stack for AI agents |
-| **Authensor Aegis** | Content safety scanner (zero dependencies) |
-| **Chainbreaker** | AI red teaming and adversarial testing framework |
-| **AI SecLists** | This repo -- payloads and wordlists for AI security |
-
-### How They Work Together
-
-```
-AI SecLists (payloads)
-    │
-    ├──► Chainbreaker (red teaming)     ── tests models against payloads
-    ├──► Authensor Aegis (scanning)     ── detects payloads in production
-    └──► Your tools (custom scanners)   ── integrate payloads into CI/CD
-```
+| [Authensor](https://github.com/AUTHENSOR/AUTHENSOR) | The open-source safety stack for AI agents |
+| [Prompt Injection Benchmark](https://github.com/AUTHENSOR/prompt-injection-benchmark) | Standardized benchmark for safety scanners |
+| [ATT&CK ↔ Alignment Rosetta](https://github.com/AUTHENSOR/attack-alignment-rosetta) | Maps MITRE ATT&CK to AI alignment concepts |
+| [Agent Forensics](https://github.com/AUTHENSOR/agent-forensics) | Post-incident analysis for receipt chains |
+| [Behavioral Fingerprinting](https://github.com/AUTHENSOR/behavioral-fingerprinting) | Statistical behavioral drift detection |
 
 ## Contributing
 
