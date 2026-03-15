@@ -1,0 +1,63 @@
+# ============================================================================
+# GitHub Token Patterns (Synthetic)
+# Synthetic GitHub token patterns for testing credential detection
+# These follow the format but are NOT valid tokens
+# ============================================================================
+
+# GitHub Personal Access Token (classic) — ghp_ prefix
+ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+ghp_1234567890abcdefABCDEF1234567890abcd
+# GitHub Personal Access Token (fine-grained) — github_pat_ prefix
+github_pat_11AABBCC_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvw1234
+# GitHub OAuth Access Token — gho_ prefix
+gho_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# GitHub User-to-Server Token — ghu_ prefix
+ghu_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# GitHub Server-to-Server Token — ghs_ prefix
+ghs_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# GitHub Refresh Token — ghr_ prefix
+ghr_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# In environment variable
+GITHUB_TOKEN=ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+GH_TOKEN=ghp_1234567890abcdefABCDEF1234567890abcd
+# In .env file
+GITHUB_TOKEN="ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345"
+# In shell export
+export GITHUB_TOKEN=ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# In git config
+[credential]\n  helper = store\n  token = ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# In HTTPS clone URL
+https://ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345@github.com/user/repo.git
+# In curl command
+curl -H "Authorization: token ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345" https://api.github.com/user
+# In curl with Bearer
+curl -H "Authorization: Bearer ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345" https://api.github.com/repos
+# In GitHub Actions workflow
+env:\n  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# In package manager config (.npmrc)
+//npm.pkg.github.com/:_authToken=ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# In Docker build arg
+docker build --build-arg GITHUB_TOKEN=ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345 .
+# In CI/CD config
+github-token: ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# In Python code
+headers = {"Authorization": f"token ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345"}
+# In JavaScript code
+const token = 'ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345';
+# In YAML config
+github:\n  token: ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345\n  org: example
+# In JSON config
+{"github_token": "ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345"}
+# In Terraform
+variable "github_token" {\n  default = "ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345"\n}
+# GitHub App Installation Token (format: v1.HEX40)
+ghs_installation_EXAMPLE_NOT_REAL
+# GitHub App Private Key (PEM format)
+-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA04qx0EXAMPLE...\n-----END RSA PRIVATE KEY-----
+# In commit message (accidentally committed)
+Updated config with token ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345
+# Obfuscated
+ghp_ABCD...e12345 (partial)
+Token: ghp_**********************************
+# In webhook payload
+{"token": "ghs_ABCDEFGHIJKLMNOPQRSTUVWXYZabcde12345", "action": "created"}

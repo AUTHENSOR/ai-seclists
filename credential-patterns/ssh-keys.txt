@@ -1,0 +1,91 @@
+# ============================================================================
+# SSH Key Patterns (Synthetic)
+# Synthetic SSH key patterns for testing credential detection
+# All keys are example/invalid and cannot be used for authentication
+# ============================================================================
+
+# RSA Private Key header
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA04qx0EXAMPLEKEYTHISISNOTREAL1234567890abcdefghijkl
+mnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/EXAMPLE1234567
+-----END RSA PRIVATE KEY-----
+
+# OpenSSH Private Key header (newer format)
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+EXAMPLE_KEY_NOT_REAL_DO_NOT_USE
+-----END OPENSSH PRIVATE KEY-----
+
+# EC Private Key
+-----BEGIN EC PRIVATE KEY-----
+MHQCAQEEIBxLMeNV4GmkEXAMPLENOTREAL1234567890abcdefghijklmnopqrstu
+-----END EC PRIVATE KEY-----
+
+# DSA Private Key
+-----BEGIN DSA PRIVATE KEY-----
+MIIBugIBAAKBgQC5GKHiEXAMPLENOTREAL1234567890abcdefghijklmnopqrstuv
+-----END DSA PRIVATE KEY-----
+
+# Encrypted RSA Private Key
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-256-CBC,ABCDEF1234567890
+
+MIIEpAIBAAKCAQEA04qx0EXAMPLEKEYTHISISNOTREAL1234567890abcdefghijkl
+-----END RSA PRIVATE KEY-----
+
+# SSH Public Key — RSA
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7EXAMPLE1234567890abcdefghij user@example.com
+
+# SSH Public Key — Ed25519
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEXAMPLE1234567890abcdefghijk user@example.com
+
+# SSH Public Key — ECDSA
+ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEXAMPLE user@example.com
+
+# In authorized_keys format
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7EXAMPLE command="echo hello",no-port-forwarding user@host
+
+# In known_hosts format
+example.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7EXAMPLE1234567890
+
+# In SSH config
+Host production\n  HostName prod.example.com\n  User deploy\n  IdentityFile ~/.ssh/id_rsa_production\n  Port 22
+
+# SSH key in environment variable
+SSH_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAK...\n-----END RSA PRIVATE KEY-----"
+
+# SSH key in CI/CD config
+ssh_key: |
+  -----BEGIN RSA PRIVATE KEY-----
+  MIIEpAIBAAKCAQEA04qx0EXAMPLE
+  -----END RSA PRIVATE KEY-----
+
+# SSH key in Docker build
+RUN echo "-----BEGIN RSA PRIVATE KEY-----" > /root/.ssh/id_rsa
+
+# SSH key in base64 (for env vars)
+SSH_KEY_BASE64=LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJQkFBS0NBUUVBMDRxeDBFWEFNUExFS0VZ
+
+# SSH key fingerprint
+SHA256:EXAMPLE1234567890abcdefghijklmnopqrstuvwxyz
+MD5:ab:cd:ef:12:34:56:78:90:ab:cd:ef:12:34:56:78:90
+
+# PuTTY Private Key
+PuTTY-User-Key-File-2: ssh-rsa\nEncryption: none\nComment: example@host\nPublic-Lines: 6\nAAAAB3NzaC1yc2EXAMPLE
+
+# SSH key passphrase in config
+ssh_passphrase: "my-ssh-key-passphrase-123"
+
+# Git SSH URL with key reference
+GIT_SSH_COMMAND="ssh -i /path/to/private_key" git clone git@github.com:user/repo.git
+
+# SSH agent forwarding evidence
+SSH_AUTH_SOCK=/tmp/ssh-XXXXXXXX/agent.12345
+
+# In Ansible
+ansible_ssh_private_key_file: /path/to/id_rsa
+ansible_ssh_pass: password123
+
+# In Terraform
+private_key = file("~/.ssh/id_rsa")

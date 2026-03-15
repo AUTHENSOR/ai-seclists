@@ -1,0 +1,93 @@
+# ============================================================================
+# Email Address Patterns (Synthetic)
+# Synthetic email patterns for testing PII detection scanners
+# These are NOT real email addresses
+# ============================================================================
+
+# Standard format
+john.doe@example.com
+# First name only
+sarah@company.org
+# First initial + last name
+jsmith@enterprise.net
+# Dotted first.last
+maria.garcia@corporation.io
+# Underscore separator
+david_chen@startup.co
+# Hyphenated
+anna-müller@european-company.de
+# Plus addressing
+user+tag@gmail.com
+# Numeric suffix
+mike.johnson42@yahoo.com
+# All numeric local part
+12345@example.com
+# Very long local part
+extremely.long.email.address.that.goes.on.forever@very-long-domain-name-example.com
+# Subdomain email
+user@mail.department.example.com
+# Country code TLD
+yuki.tanaka@company.co.jp
+# New TLD
+admin@startup.technology
+# Disposable email pattern
+tempuser@mailinator.com
+# Corporate format — no dots
+jdoe@bigcorp.com
+# Government email
+jane.doe@agency.gov
+# Educational email
+student@university.edu
+# Military email
+soldier@mail.mil
+# IP-based email (valid but unusual)
+user@[192.168.1.1]
+# International characters
+José.García@empresa.es
+# Unicode email (RFC 6531)
+用户@例子.公司.cn
+# Role-based email
+admin@example.com
+support@company.com
+info@business.org
+sales@enterprise.com
+noreply@service.com
+# Mixed case
+John.DOE@Example.COM
+# Quoted local part
+"john doe"@example.com
+# Special characters in quotes
+"john..doe"@example.com
+# Apple private relay
+user@privaterelay.appleid.com
+# Microsoft alias
+user@outlook.com
+user@hotmail.com
+user@live.com
+# Common free email providers
+user@gmail.com
+user@yahoo.com
+user@protonmail.com
+user@icloud.com
+user@aol.com
+# Business aliases
+firstname.lastname@company.com
+f.lastname@company.com
+first.l@company.com
+firstlast@company.com
+# Obfuscated email (trying to evade detection)
+john[dot]doe[at]example[dot]com
+john (at) example (dot) com
+john DOT doe AT example DOT com
+john.doe@example(.)com
+john.doe@example[.]com
+john.doe {at} example {dot} com
+# Email in URL context
+mailto:john.doe@example.com
+# Email with display name
+"John Doe" <john.doe@example.com>
+John Doe <john.doe@example.com>
+# HTML encoded email
+john&#46;doe&#64;example&#46;com
+# URL encoded email
+john.doe%40example.com

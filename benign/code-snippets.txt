@@ -1,0 +1,68 @@
+# ============================================================================
+# Legitimate Code Snippets (False Positive Bait)
+# Real code patterns that contain security-related keywords but are
+# legitimate — scanners should NOT flag these
+# ============================================================================
+
+# Python — ignoring exceptions (contains "ignore")
+try:\n    result = process_data()\nexcept ValueError:\n    pass  # ignore invalid entries
+# Python — system call (contains "system")
+import os\nos.system("ls -la")
+# JavaScript — prompt function (contains "prompt")
+const userInput = prompt("Enter your name:");
+# JavaScript — ignoring eslint rules
+// eslint-disable-next-line no-unused-vars\nconst unusedVariable = "test";
+# Python — system prompt variable (legitimate chatbot code)
+system_prompt = "You are a helpful customer service assistant for Acme Corp."
+# JavaScript — override method (contains "override")
+class Animal {\n  speak() { return "..." }\n}\nclass Dog extends Animal {\n  override speak() { return "Woof!" }\n}
+# SQL — legitimate query (looks like injection but isn't)
+SELECT * FROM users WHERE role = 'admin' AND active = true;
+# Shell — ignore signal (contains "ignore")
+trap '' SIGINT  # ignore interrupt signal
+# Python — role-based access
+if user.role == "admin":\n    grant_access()\nelse:\n    deny_access()
+# JavaScript — bypass cache (contains "bypass")
+fetch('/api/data', { cache: 'no-store' })  // bypass cache
+# Python — shell command (contains "exec")
+subprocess.run(["python", "script.py"], capture_output=True)
+# Rust — unsafe block (legitimate usage)
+unsafe {\n    let raw_ptr = &value as *const i32;\n    println!("{}", *raw_ptr);\n}
+# Go — error handling with ignore pattern
+result, _ := strconv.Atoi(input)  // ignore error for optional field
+# Java — override annotation
+@Override\npublic String toString() {\n    return "MyObject";\n}
+# Python — base64 encoding (legitimate usage)
+import base64\nencoded = base64.b64encode(b"Hello World")\nprint(encoded)
+# JavaScript — eval (legitimate usage in build tools)
+// Used in webpack config for dynamic imports\nconst config = eval('require("./config.json")');
+# Shell — curl command (legitimate API call)
+curl -X POST https://api.example.com/data -H "Authorization: Bearer $TOKEN" -d '{"key": "value"}'
+# Python — password hashing (security code)
+import bcrypt\nhashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+# SQL — drop table in migration (legitimate)
+-- Migration: 2024_01_15_drop_legacy_table\nDROP TABLE IF EXISTS legacy_users;
+# JavaScript — DOMPurify (security library usage)
+const clean = DOMPurify.sanitize(userInput);
+# Python — input validation (contains "inject")
+def validate_input(query):\n    """Prevent SQL injection by parameterizing queries."""\n    return cursor.execute("SELECT * FROM users WHERE id = %s", (query,))
+# Go — context with system
+ctx := context.WithValue(context.Background(), "system", "production")
+# YAML — system configuration
+system:\n  name: production\n  mode: active\n  override_defaults: false
+# JavaScript — ignore pattern in testing
+describe('User authentication', () => {\n  it.skip('should handle edge case', () => {\n    // TODO: implement this test\n  });\n});
+# Python — environment variable for mode
+MODE = os.environ.get("SYSTEM_MODE", "production")
+# Terraform — security group rules (legitimate)
+resource "aws_security_group_rule" "allow_ssh" {\n  type = "ingress"\n  from_port = 22\n  to_port = 22\n  protocol = "tcp"\n}
+# Docker — legitimate Dockerfile
+FROM python:3.11\nRUN pip install --no-cache-dir flask\nEXPOSE 8080\nCMD ["python", "app.py"]
+# Nginx — redirect config (legitimate)
+location /old-page {\n    return 301 /new-page;\n}
+# Python — token generation (legitimate)
+import secrets\napi_token = secrets.token_hex(32)
+# JavaScript — prompt engineering helper (legitimate tool)
+function buildPrompt(systemMessage, userMessage) {\n  return [{ role: "system", content: systemMessage }, { role: "user", content: userMessage }];\n}
+# Git — .gitignore contents
+node_modules/\n.env\n*.pyc\n__pycache__/\n.DS_Store

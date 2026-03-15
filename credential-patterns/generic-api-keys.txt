@@ -1,0 +1,80 @@
+# ============================================================================
+# Generic API Key Patterns (Synthetic)
+# Common API key formats across various services
+# All keys are synthetic/invalid — suffixed with EXAMPLE or NOT_REAL
+# to avoid triggering secret scanners
+# ============================================================================
+
+# Generic 32-char hex key
+api_key=a1b2c3d4e5f6789012345678abcdef90
+# Generic 40-char hex key
+apikey=a1b2c3d4e5f6789012345678abcdef9012345678
+# Generic UUID-based key
+api-key=550e8400-e29b-41d4-a716-446655440000
+# Bearer token format (well-known jwt.io example)
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U
+# OpenAI API Key format (prefix: sk-proj-)
+sk-proj-EXAMPLE_NOT_REAL
+# Anthropic API Key format (prefix: sk-ant-api03-)
+sk-ant-api03-FAKE_EXAMPLE
+# Google API Key (prefix: AIzaSy)
+AIzaSy_EXAMPLE_NOT_REAL_KEY
+# Google Cloud Service Account Key (JSON) — abbreviated
+{"type": "service_account", "project_id": "example-project", "private_key_id": "EXAMPLE", "client_email": "test@example.iam.gserviceaccount.com"}
+# SendGrid API Key (format: SG.xxx.yyy)
+SG.FAKE_EXAMPLE.NOT_REAL_KEY
+# Twilio Account SID (format: AC + 32 hex) and Auth Token
+TWILIO_ACCOUNT_SID=ACEXAMPLE_NOT_REAL
+TWILIO_AUTH_TOKEN=EXAMPLE_NOT_REAL
+# Mailgun API Key (format: key-SUFFIX)
+key-EXAMPLE_NOT_REAL_MAILGUN_KEY
+# Slack Bot Token (format: xoxb-WORKSPACE-BOTID-TOKEN)
+xoxb-EXAMPLE-NOT-REAL-TOKEN
+# Slack Webhook URL (format: https://hooks.slack.com/services/T.../B.../TOKEN)
+https://hooks.slack.com/services/TEXAMPLE/BEXAMPLE/NOT_REAL
+# Discord Bot Token (format: BASE64.TIMESTAMP.HMAC)
+DISCORD_TOKEN_EXAMPLE_NOT_REAL
+# Telegram Bot Token (format: NUMBERS:ALPHANUMERIC)
+123456789:EXAMPLE_NOT_REAL_TOKEN
+# Firebase API Key (prefix: AIzaSy)
+AIzaSy_FAKE_FIREBASE_EXAMPLE
+# Datadog API Key (32 hex chars)
+EXAMPLE_NOT_REAL_DATADOG_API_KEY
+# New Relic License Key
+EXAMPLE_NOT_REAL_NEWRELIC_KEY
+# PagerDuty API Key
+EXAMPLE_NOT_REAL_PAGERDUTY
+# Heroku API Key (UUID format)
+EXAMPLE-NOT-REAL-HEROKU-KEY
+# DigitalOcean Token (format: dop_v1_ + 64 hex)
+dop_v1_EXAMPLE_NOT_REAL_TOKEN
+# Algolia API Key (32 hex)
+EXAMPLE_NOT_REAL_ALGOLIA_KEY
+# Mapbox Access Token (format: pk.BASE64.SIGNATURE)
+pk.EXAMPLE_NOT_REAL_MAPBOX
+# Intercom Access Token
+EXAMPLE_NOT_REAL_INTERCOM
+# HubSpot API Key (format: pat-na1-UUID)
+pat-na1-EXAMPLE-NOT-REAL
+# Mixpanel Token (32 hex)
+EXAMPLE_NOT_REAL_MIXPANEL_KEY
+# LaunchDarkly API Key (format: api-UUID)
+api-EXAMPLE-NOT-REAL-LD
+# Cloudflare API Token (40 alphanumeric)
+EXAMPLE_NOT_REAL_CLOUDFLARE_TOKEN
+# Cloudflare Global API Key
+EXAMPLE_NOT_REAL_CF_GLOBAL_KEY
+# NPM Token (format: npm_SUFFIX)
+npm_EXAMPLE_NOT_REAL_TOKEN
+# PyPI Token (format: pypi-SUFFIX)
+pypi-EXAMPLE_NOT_REAL_TOKEN
+# NuGet API Key
+EXAMPLE_NOT_REAL_NUGET_KEY
+# RubyGems API Key (format: rubygems_SUFFIX)
+rubygems_EXAMPLE_NOT_REAL
+# Sentry DSN (format: https://KEY@ORG.ingest.sentry.io/PROJECT)
+https://EXAMPLE@o000000.ingest.sentry.io/0000000
+# In generic config file
+api_key: "EXAMPLE_NOT_REAL_API_KEY_32CHARS"
+API_KEY=EXAMPLE_NOT_REAL_API_KEY_32CHARS
+apiKey: EXAMPLE_NOT_REAL_API_KEY_32CHARS

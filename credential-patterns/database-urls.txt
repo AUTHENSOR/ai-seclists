@@ -1,0 +1,72 @@
+# ============================================================================
+# Database Connection String Patterns (Synthetic)
+# Synthetic database connection strings for testing credential detection
+# All credentials are fictional
+# ============================================================================
+
+# PostgreSQL — standard
+postgresql://user:password123@localhost:5432/mydb
+postgres://admin:s3cur3p@ss@db.example.com:5432/production
+# PostgreSQL — with options
+postgresql://user:password@host:5432/db?sslmode=require&connect_timeout=10
+# PostgreSQL — URL encoded password
+postgresql://user:p%40ssw0rd@host:5432/db
+# MySQL — standard
+mysql://root:password123@localhost:3306/mydb
+mysql://admin:s3cur3p@ss@db.example.com:3306/production
+# MySQL — JDBC
+jdbc:mysql://localhost:3306/mydb?user=root&password=password123
+# MongoDB — standard
+mongodb://user:password123@localhost:27017/mydb
+mongodb://admin:s3cur3p@ss@cluster.example.com:27017/production?authSource=admin
+# MongoDB — Atlas (SRV)
+mongodb+srv://admin:password123@cluster0.abc123.mongodb.net/mydb?retryWrites=true
+# Redis — standard
+redis://user:password123@localhost:6379/0
+redis://:password123@redis.example.com:6379
+# Redis — Sentinel
+redis+sentinel://user:password123@sentinel1:26379,sentinel2:26379/mymaster/0
+# SQL Server — connection string
+Server=db.example.com;Database=mydb;User Id=sa;Password=password123;
+# SQL Server — JDBC
+jdbc:sqlserver://localhost:1433;databaseName=mydb;user=sa;password=password123
+# SQL Server — with encryption
+Server=tcp:server.database.windows.net,1433;Database=mydb;User ID=admin;Password=password123;Encrypt=yes
+# Oracle — standard
+oracle://user:password123@localhost:1521/orcl
+# Oracle — JDBC thin
+jdbc:oracle:thin:user/password123@localhost:1521:orcl
+# SQLite — file path (no credentials but may reveal paths)
+sqlite:///var/data/production.db
+sqlite:////home/user/app/database.sqlite3
+# CockroachDB
+postgresql://user:password123@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/mydb?sslmode=verify-full
+# MariaDB
+mysql://admin:password123@mariadb.example.com:3306/production
+# In .env file
+DATABASE_URL="postgresql://user:password123@localhost:5432/mydb"
+DB_CONNECTION_STRING=mysql://root:password@localhost/mydb
+REDIS_URL=redis://:secret@redis.example.com:6379
+MONGO_URI=mongodb://admin:p@ss@mongo.example.com:27017/db
+# In config file
+database:\n  host: db.example.com\n  port: 5432\n  username: admin\n  password: s3cur3p@ss\n  name: production
+# In Docker Compose
+services:\n  db:\n    environment:\n      POSTGRES_PASSWORD: password123\n      POSTGRES_USER: admin
+# In Kubernetes secret
+apiVersion: v1\nkind: Secret\ndata:\n  DATABASE_URL: cG9zdGdyZXNxbDovL3VzZXI6cGFzc3dvcmRAaG9zdDo1NDMyL2Ri
+# In Terraform
+resource "aws_db_instance" "default" {\n  username = "admin"\n  password = "password123"\n}
+# In Django settings
+DATABASES = {'default': {'ENGINE': 'django.db.backends.postgresql', 'HOST': 'db.example.com', 'USER': 'admin', 'PASSWORD': 'password123'}}
+# In Rails config
+production:\n  adapter: postgresql\n  host: db.example.com\n  username: admin\n  password: password123
+# In Laravel .env
+DB_HOST=127.0.0.1\nDB_PORT=3306\nDB_DATABASE=mydb\nDB_USERNAME=root\nDB_PASSWORD=password123
+# Connection string with special characters in password
+postgresql://user:p%40%24%24w0rd%21@host:5432/db
+# Supabase
+postgresql://postgres.abc123:password123@aws-0-us-east-1.pooler.supabase.com:5432/postgres
+# PlanetScale
+mysql://abc123:pscale_pw_example@aws.connect.psdb.cloud/mydb?sslaccept=strict
+# Neon
+postgresql://user:password123@ep-abc-123.us-east-1.aws.neon.tech/mydb

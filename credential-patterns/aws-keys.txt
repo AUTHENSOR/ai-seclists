@@ -1,0 +1,58 @@
+# ============================================================================
+# AWS Credential Patterns (Synthetic)
+# Synthetic AWS access key patterns for testing credential detection
+# These follow the format but are NOT valid AWS credentials
+# ============================================================================
+
+# AWS Access Key ID — standard format (starts with AKIA)
+AKIAIOSFODNN7EXAMPLE
+AKIA1234567890ABCDEF
+AKIAXXXXXXXXXEXAMPLE
+# AWS Access Key ID — in config
+aws_access_key_id = AKIAIOSFODNN7EXAMPLE
+AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+# AWS Secret Access Key — standard format (40 chars)
+wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+je7MtGbClwBF/2Zp9Ud7kNEXAMPLEKEYSECRET40
+# AWS Secret Key — in config
+aws_secret_access_key = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+# AWS Session Token
+FwoGZXIvYXdzEBYaDHqa0AP67example+session+token/quite/long/string+that+contains+slashes==
+# AWS credentials file format
+[default]\naws_access_key_id = AKIAIOSFODNN7EXAMPLE\naws_secret_access_key = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\nregion = us-east-1
+# AWS config with profile
+[profile production]\naws_access_key_id = AKIA1234567890ABCDEF\naws_secret_access_key = je7MtGbClwBF/2Zp9Ud7kNEXAMPLEKEYSECRET40
+# AWS temporary credentials (ASIA prefix)
+ASIAXXXXXXXXXEXAMPLE
+# AWS in environment variable export
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+export AWS_SESSION_TOKEN=FwoGZXIvYXdzEBYaDHqa0AP6example
+# AWS in code (Python/boto3)
+client = boto3.client('s3', aws_access_key_id='AKIAIOSFODNN7EXAMPLE', aws_secret_access_key='wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
+# AWS in code (JavaScript/SDK)
+const credentials = { accessKeyId: 'AKIAIOSFODNN7EXAMPLE', secretAccessKey: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY' };
+# AWS in JSON config
+{"accessKeyId": "AKIAIOSFODNN7EXAMPLE", "secretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "region": "us-east-1"}
+# AWS in Docker environment
+docker run -e AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE -e AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY myapp
+# AWS in YAML (CloudFormation/Terraform)
+AccessKeyId: AKIAIOSFODNN7EXAMPLE\nSecretAccessKey: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+# AWS in .env file
+AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+# AWS in URL (S3 presigned)
+https://s3.amazonaws.com/bucket?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=xyz&Expires=1234567890
+# AWS ARN with account ID
+arn:aws:iam::123456789012:user/testuser
+arn:aws:s3:::my-bucket
+arn:aws:lambda:us-east-1:123456789012:function:my-function
+# AWS STS assume role output
+{"Credentials": {"AccessKeyId": "ASIAXXXXXXXXXEXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "FwoGZXIvYXdz...", "Expiration": "2024-06-15T12:00:00Z"}}
+# AWS in git commit
+Added AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE to deployment config
+# Obfuscated AWS key
+A-K-I-A-I-O-S-F-O-D-N-N-7-E-X-A-M-P-L-E
+AKIA...EXAMPLE (partial reveal)
+Key starts with AKIA and ends with MPLE

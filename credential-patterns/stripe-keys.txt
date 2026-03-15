@@ -1,0 +1,71 @@
+# ============================================================================
+# Stripe Key Patterns (Synthetic)
+# Synthetic Stripe API key patterns for testing credential detection
+# Uses test mode prefixes and obviously fake suffixes
+# NOTE: Suffixes kept short/fake to avoid GitHub secret scanning triggers
+# ============================================================================
+
+# Stripe Secret Key — test mode (format: sk_test_SUFFIX)
+sk_test_FAKE_EXAMPLE
+sk_test_NOT_REAL_KEY
+# Stripe Publishable Key — test mode (format: pk_test_SUFFIX)
+pk_test_FAKE_EXAMPLE
+pk_test_NOT_REAL_KEY
+# Stripe Secret Key — live mode pattern (format: sk_live_SUFFIX)
+# NOTE: Real keys have 24+ char suffix; these are truncated to avoid scanning
+sk_live_FAKE_EXAMPLE
+sk_live_NOT_REAL_KEY
+# Stripe Publishable Key — live mode (format: pk_live_SUFFIX)
+pk_live_FAKE_EXAMPLE
+pk_live_NOT_REAL_KEY
+# Stripe Restricted Key — test (format: rk_test_SUFFIX)
+rk_test_FAKE_EXAMPLE
+# Stripe Restricted Key — live (format: rk_live_SUFFIX)
+rk_live_FAKE_EXAMPLE
+# Stripe Webhook Signing Secret (format: whsec_SUFFIX)
+whsec_FAKE_EXAMPLE_KEY
+# In environment variables
+STRIPE_SECRET_KEY=sk_test_FAKE_EXAMPLE
+STRIPE_PUBLISHABLE_KEY=pk_test_FAKE_EXAMPLE
+# In .env file
+STRIPE_SECRET_KEY="sk_test_FAKE_EXAMPLE"
+STRIPE_PUBLISHABLE_KEY="pk_test_FAKE_EXAMPLE"
+# In shell export
+export STRIPE_SECRET_KEY=sk_test_FAKE_EXAMPLE
+# In JavaScript code
+const stripe = require('stripe')('sk_test_FAKE_EXAMPLE');
+# In Python code
+stripe.api_key = "sk_test_FAKE_EXAMPLE"
+# In Ruby code
+Stripe.api_key = 'sk_test_FAKE_EXAMPLE'
+# In PHP code
+\Stripe\Stripe::setApiKey('sk_test_FAKE_EXAMPLE');
+# In curl command
+curl https://api.stripe.com/v1/charges -u sk_test_FAKE_EXAMPLE:
+# In JSON config
+{"stripe": {"secret_key": "sk_test_FAKE_EXAMPLE", "publishable_key": "pk_test_FAKE_EXAMPLE"}}
+# In YAML config
+stripe:\n  secret_key: sk_test_FAKE_EXAMPLE\n  publishable_key: pk_test_FAKE_EXAMPLE
+# In HTML (publishable key in frontend)
+<script>var stripe = Stripe('pk_test_FAKE_EXAMPLE');</script>
+# In Docker environment
+docker run -e STRIPE_SECRET_KEY=sk_test_FAKE_EXAMPLE myapp
+# In Terraform
+variable "stripe_key" {\n  default = "sk_test_FAKE_EXAMPLE"\n}
+# In CI/CD config
+STRIPE_API_KEY: sk_test_FAKE_EXAMPLE
+# Obfuscated
+sk_test_FAKE...MPLE (partial)
+STRIPE_KEY=sk_****_FAKE
+# In URL parameter
+https://dashboard.stripe.com/test/apikeys?key=sk_test_FAKE_EXAMPLE
+# In commit message
+Updated Stripe key to sk_test_FAKE_EXAMPLE
+# In authorization header
+Authorization: Bearer sk_test_FAKE_EXAMPLE
+# Stripe Connect — account token (format: acct_SUFFIX)
+acct_FAKE_EXAMPLE_1234
+# Stripe Customer ID (not a secret but useful to detect)
+cus_FAKE_EXAMPLE_1234
+# Stripe Payment Intent (not a secret)
+pi_FAKE_EXAMPLE_12345

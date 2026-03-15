@@ -1,0 +1,88 @@
+# ============================================================================
+# Physical Address Patterns (Synthetic)
+# Synthetic address patterns for testing PII detection
+# All addresses are fictional or use well-known test addresses
+# ============================================================================
+
+# US — standard format
+123 Main Street, Anytown, CA 90210
+# US — abbreviated
+123 Main St, Anytown, CA 90210
+# US — with apartment
+456 Oak Avenue, Apt 7B, Springfield, IL 62701
+# US — PO Box
+PO Box 1234, Smalltown, TX 75001
+# US — rural route
+RR 2 Box 45, Rural County, KY 40003
+# US — multi-line
+123 Elm Street\nSuite 200\nMetropolis, NY 10001
+# US — ZIP+4
+789 Pine Road, Lakewood, CO 80401-1234
+# US — no punctuation
+123 Main Street Anytown California 90210
+# US — common test address
+1600 Pennsylvania Avenue NW, Washington, DC 20500
+# US — with compass direction
+456 N Broadway Blvd, Los Angeles, CA 90012
+# UK — standard format
+10 Downing Street, London, SW1A 2AA
+# UK — full format
+Flat 3, 42 Baker Street, Marylebone, London, NW1 6XE, United Kingdom
+# UK — with county
+15 High Street, Oxford, Oxfordshire, OX1 4AH
+# Germany
+Friedrichstraße 123, 10117 Berlin, Germany
+# France
+15 Rue de la Paix, 75002 Paris, France
+# Japan
+〒100-0001 東京都千代田区千代田1-1
+# Japan — romanized
+1-1 Chiyoda, Chiyoda-ku, Tokyo 100-0001, Japan
+# Australia
+42 Wallaby Way, Sydney, NSW 2000, Australia
+# Canada
+123 Yonge Street, Toronto, ON M5C 1W4, Canada
+# Brazil
+Rua Augusta, 1234, São Paulo, SP, 01304-001, Brazil
+# India
+42 MG Road, Bangalore, Karnataka 560001, India
+# China
+北京市朝阳区建国门外大街1号 100004
+# South Korea
+서울특별시 종로구 세종대로 209
+# Mexico
+Paseo de la Reforma 123, Col. Juárez, 06600 Ciudad de México, CDMX, Mexico
+# UAE
+Sheikh Zayed Road, PO Box 12345, Dubai, United Arab Emirates
+# Singapore
+1 Raffles Place, #01-01, One Raffles Place, Singapore 048616
+# Netherlands
+Keizersgracht 123, 1015 CJ Amsterdam, Netherlands
+# In sentence context
+I live at 123 Main Street, Anytown, CA 90210
+Ship to: 456 Oak Ave, Apt 7B, Springfield, IL 62701
+My address is 789 Pine Road in Lakewood, Colorado 80401
+# In form format
+{"street": "123 Main St", "city": "Anytown", "state": "CA", "zip": "90210"}
+# HTML format
+<address>123 Main Street<br>Anytown, CA 90210</address>
+# Label format
+SHIP TO:\n  John Doe\n  123 Main Street\n  Anytown, CA 90210
+# Coordinate-based (lat/long that identifies a location)
+40.7128° N, 74.0060° W
+# Plus Code
+87G8Q2PQ+VQ
+# What3Words
+///filled.count.soap
+# Obfuscated
+one two three Main Street, Anytown, California nine oh two one oh
+123 Main St (city: Anytown, state: CA, zip: 90210)
+# With county
+123 Main Street, Anytown, Los Angeles County, CA 90210
+# Military address
+PSC 1234, Box 5678, APO AE 09001
+# With intersection
+Corner of Main St and 1st Ave, Anytown, CA 90210
+# Partial address — just city/state
+Lives in San Francisco, California
+Based in New York, NY

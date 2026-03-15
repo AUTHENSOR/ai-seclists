@@ -1,0 +1,118 @@
+# ============================================================================
+# International ID Patterns (Synthetic)
+# Synthetic patterns for international identification numbers
+# All numbers are fictional and follow the format but are invalid
+# ============================================================================
+
+# UK National Insurance Number (NINO)
+AB 12 34 56 C
+AB123456C
+QQ 12 34 56 A
+# UK NHS Number (10 digits)
+943 476 5919
+9434765919
+# Canadian Social Insurance Number (SIN)
+046-454-286
+046 454 286
+046454286
+# Australian Tax File Number (TFN) — 9 digits
+123 456 789
+# Australian Medicare Number
+2123 45670 1
+# Indian Aadhaar Number (12 digits)
+1234 5678 9012
+234567890123
+# Indian PAN (Permanent Account Number)
+ABCDE1234F
+BNZAA2318J
+# German Tax ID (Steuerliche Identifikationsnummer) — 11 digits
+12345678901
+12 345 678 901
+# German Social Insurance Number
+12 010190 A 123
+# French NIR (Social Security Number) — 13 digits + 2-digit key
+1 85 05 78 006 084 36
+# French Tax Number (Numéro Fiscal)
+1234567890123
+# Italian Codice Fiscale (16 chars)
+RSSMRA85M01H501Z
+BNCLRA85E41H501C
+# Spanish DNI (8 digits + letter)
+12345678Z
+12345678-Z
+# Spanish NIE (foreigner ID)
+X1234567L
+Y1234567X
+Z1234567R
+# Brazilian CPF (11 digits)
+123.456.789-09
+12345678909
+# Brazilian CNPJ (14 digits)
+12.345.678/0001-95
+# Mexican CURP (18 chars)
+GARC850101HDFRRL09
+# South Korean Resident Registration Number (13 digits)
+850101-1234567
+# Japanese My Number (12 digits)
+123456789012
+1234 5678 9012
+# Chinese National ID (18 digits)
+110101199003074518
+# Singapore NRIC/FIN
+S1234567D
+T1234567J
+F1234567N
+G1234567X
+# Hong Kong ID
+A123456(7)
+AB123456(7)
+# Malaysian IC Number (12 digits)
+850101-14-1234
+# Thai National ID (13 digits)
+1234567890123
+# Philippine SSS Number
+12-3456789-0
+# Israeli ID Number (9 digits)
+012345678
+# South African ID Number (13 digits)
+8501015009087
+# Russian INN (Individual 12 digits, Entity 10 digits)
+123456789012
+1234567890
+# Russian Passport (internal)
+12 34 567890
+# Turkish National ID (11 digits)
+12345678901
+# Swedish Personal Identity Number
+850101-1234
+19850101-1234
+# Norwegian National ID
+01018512345
+# Danish CPR Number
+010185-1234
+# Finnish Personal Identity Code
+010185-123A
+# Dutch BSN (Burger Service Nummer)
+123456789
+# Swiss AHV/AVS Number
+756.1234.5678.97
+# Polish PESEL (11 digits)
+85010112345
+# Austrian Social Insurance Number
+1234 010185
+# Belgian National Number
+85.01.01-123.45
+# Portuguese NIF
+123456789
+# Greek AFM (Tax ID)
+123456789
+# UAE Emirates ID
+784-1985-1234567-1
+# With labels
+Aadhaar: 1234 5678 9012
+PAN: ABCDE1234F
+NINO: AB 12 34 56 C
+NHS: 943 476 5919
+SIN: 046-454-286
+DNI: 12345678Z
+CPF: 123.456.789-09

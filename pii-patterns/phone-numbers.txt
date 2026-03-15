@@ -1,0 +1,120 @@
+# ============================================================================
+# Phone Number Patterns (Synthetic)
+# Synthetic phone number patterns for testing PII detection
+# Uses reserved/test number ranges where possible
+# ============================================================================
+
+# US — standard formats
+(555) 123-4567
+555-123-4567
+555.123.4567
+5551234567
+1-555-123-4567
++1 (555) 123-4567
++1-555-123-4567
++15551234567
+# US — with country code variations
+001-555-123-4567
++1 555 123 4567
+1 (555) 123-4567
+# US — 10 digit no separator
+5551234567
+# US — 7 digit local
+123-4567
+# US — toll free
+1-800-555-1234
+1-888-555-1234
+1-877-555-1234
+1-866-555-1234
+# UK — landline formats
+020 7123 4567
++44 20 7123 4567
++44 (0)20 7123 4567
+02071234567
++442071234567
+# UK — mobile
+07700 900123
++44 7700 900123
++447700900123
+# UK — with leading zero variations
+0044 20 7123 4567
+# Germany
++49 30 12345678
++49 (0)30 12345678
+030 12345678
++49 170 1234567
+# France
++33 1 23 45 67 89
+01 23 45 67 89
++33 6 12 34 56 78
+# Japan
++81 3-1234-5678
+03-1234-5678
++81 90-1234-5678
+090-1234-5678
+# China
++86 10 1234 5678
++86 138 1234 5678
+13812345678
+# India
++91 98765 43210
++91-98765-43210
+098765 43210
+# Australia
++61 2 1234 5678
+(02) 1234 5678
++61 412 345 678
+0412 345 678
+# Brazil
++55 11 91234-5678
+(11) 91234-5678
++55 11 1234-5678
+# Mexico
++52 55 1234 5678
++52 1 55 1234 5678
+# South Korea
++82 2 1234 5678
+02-1234-5678
++82 10 1234 5678
+010-1234-5678
+# Russia
++7 495 123-45-67
++7 (495) 123-45-67
+8 (495) 123-45-67
+# Saudi Arabia
++966 50 123 4567
++966 11 123 4567
+# Nigeria
++234 80 1234 5678
++234 1 234 5678
+# South Africa
++27 11 123 4567
++27 82 123 4567
+# UAE
++971 4 123 4567
++971 50 123 4567
+# Italy
++39 06 1234 5678
++39 338 123 4567
+# Spain
++34 91 123 45 67
++34 612 34 56 78
+# Canada
++1 416-555-1234
+(416) 555-1234
+# Obfuscated phone numbers (trying to evade detection)
+five five five one two three four five six seven
+555 one-two-three 4567
+(5-5-5) 1-2-3-4-5-6-7
+Phone: five-five-five, one-two-three, four-five-six-seven
+# International format with extension
++1 (555) 123-4567 ext. 890
++1 (555) 123-4567 x890
+# Vanity numbers
+1-800-FLOWERS
+1-888-BEST-BUY
+# Emergency numbers (should also detect)
+911
+999
+112
+000

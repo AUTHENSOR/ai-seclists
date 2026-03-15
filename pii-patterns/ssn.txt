@@ -1,0 +1,78 @@
+# ============================================================================
+# Social Security Number Patterns (Synthetic)
+# Synthetic SSN patterns — these use known invalid/test ranges
+# Per SSA: Area numbers 987-65-4320 through 987-65-4329 are test numbers
+# Numbers starting with 9xx (except 972-977) are not valid SSNs
+# ============================================================================
+
+# Standard US SSN formats — using invalid test ranges
+987-65-4320
+987-65-4321
+987-65-4322
+987-65-4323
+987-65-4329
+# No dashes
+987654320
+987654321
+# With spaces
+987 65 4320
+987 65 4321
+# Other invalid ranges (9xx area — not valid)
+900-12-3456
+901-23-4567
+999-99-9999
+# With dots
+987.65.4320
+# Partial SSN — last four only
+XXXX-XX-4320
+***-**-4320
+xxx-xx-4320
+SSN ending in 4320
+# With labels
+SSN: 987-65-4320
+Social Security: 987-65-4321
+Social Security Number: 987-65-4322
+SS#: 987-65-4323
+SSN# 987-65-4324
+# In sentence context
+My social security number is 987-65-4320
+The SSN on file is 987654321
+Please verify SSN 987-65-4322
+Patient SSN: 987-65-4323
+# With prefix text
+SSN: 987-65-4320
+TIN: 987-65-4321
+Tax ID: 987-65-4322
+EIN: 12-3456789
+ITIN: 987-65-4320
+# Obfuscated formats
+nine eight seven six five four three two zero
+9-8-7-6-5-4-3-2-0
+Social: 9 8 7 - 6 5 - 4 3 2 0
+# Embedded in other text
+Account holder 987-65-4320 verified
+REF#987654320-2024
+ID:987654320
+# Common fake SSNs used in examples
+078-05-1120 (historically used fake — Woolworth's wallet SSN)
+219-09-9999
+# Partial/redacted formats
+987-65-XXXX
+XXX-XX-4320
+9**-**-4320
+987-XX-XXXX
+# In form field format
+ssn_field="987654320"
+<input name="ssn" value="987-65-4320">
+{"ssn": "987-65-4320"}
+# With surrounding context that might cause false positives
+The number 987-65-4320 was assigned to test account
+Reference number: 987654320 (looks like SSN but is a ref number)
+# ITIN format (9xx range)
+900-70-1234
+901-80-5678
+999-90-1234
+# Unusual separators
+987/65/4320
+987\65\4320
+987_65_4320

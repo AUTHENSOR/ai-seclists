@@ -1,0 +1,84 @@
+# ============================================================================
+# Credit Card Patterns (Synthetic)
+# Synthetic credit card numbers using known test/invalid ranges
+# These pass Luhn checksum where indicated but are NOT real card numbers
+# Stripe/payment processor test card numbers are used
+# ============================================================================
+
+# Visa test cards (Stripe test numbers)
+4242424242424242
+4000056655665556
+# Visa formatted
+4242 4242 4242 4242
+4242-4242-4242-4242
+# Mastercard test cards
+5555555555554444
+5200828282828210
+# Mastercard formatted
+5555 5555 5555 4444
+5555-5555-5555-4444
+# Amex test cards (15 digits)
+378282246310005
+371449635398431
+# Amex formatted
+3782 822463 10005
+3714-496353-98431
+# Discover test cards
+6011111111111117
+6011000990139424
+# Discover formatted
+6011 1111 1111 1117
+# Diners Club
+30569309025904
+38520000023237
+# JCB
+3530111333300000
+3566002020360505
+# UnionPay
+6200000000000005
+# With labels
+Card: 4242424242424242
+Credit Card: 4242 4242 4242 4242
+CC#: 4242424242424242
+Card Number: 5555555555554444
+# With expiry and CVV
+4242424242424242 12/25 123
+Card: 4242 4242 4242 4242, Exp: 12/25, CVV: 123
+5555555555554444 exp 01/26 cvv 456
+# In JSON format
+{"card_number": "4242424242424242", "exp_month": 12, "exp_year": 2025, "cvc": "123"}
+# In form format
+<input name="card" value="4242424242424242">
+# In sentence context
+My card number is 4242 4242 4242 4242 and it expires 12/25
+Please charge 5555555555554444 for the order
+The payment was made with card ending in 4242
+# With surrounding data
+Name: John Doe\nCard: 4242424242424242\nExp: 12/25\nCVV: 123\nZip: 10001
+# Obfuscated formats
+four-two-four-two 4242 4242 4242
+42424242 42424242
+CC: 4242 xxxx xxxx 4242
+Card ending in *4242
+# Partial/masked formats
+XXXX-XXXX-XXXX-4242
+****4444
+############4242
+4242-XXXX-XXXX-4242
+# BIN ranges (first 6 digits identifying issuer)
+424242XXXXXXXXXX (Visa)
+555555XXXXXXXXXX (Mastercard)
+378282XXXXXXXXX (Amex)
+601111XXXXXXXXXX (Discover)
+# URL parameter
+https://payment.example.com/charge?card=4242424242424242&exp=1225&cvv=123
+# Base64 encoded
+NDI0MjQyNDI0MjQyNDI0Mg== (4242424242424242 in base64)
+# With PAN (Primary Account Number) label
+PAN: 4242424242424242
+# Track 1 format (magnetic stripe)
+%B4242424242424242^DOE/JOHN^25121011000000000000000?
+# Track 2 format
+;4242424242424242=2512101100000000?
+# In API request
+Authorization: Bearer sk_test_... \n{"source": "tok_visa", "card": {"number": "4242424242424242"}}
