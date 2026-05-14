@@ -1,0 +1,52 @@
+name: New Payloads
+description: Submit new attack payloads or test inputs
+title: "[Payloads] "
+labels: ["payloads"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category do these payloads belong to?
+      options:
+        - prompt-injection
+        - jailbreaks
+        - tool-abuse
+        - exfiltration
+        - memory-poisoning
+        - pii-patterns
+        - guardrail-bypass
+        - credential-patterns
+        - agent-manipulation
+        - supply-chain
+        - model-specific
+        - rag-poisoning
+        - benign
+        - New category (describe below)
+    validations:
+      required: true
+  - type: textarea
+    id: payloads
+    attributes:
+      label: Payloads
+      description: One payload per line. Use # comments to explain the technique.
+      placeholder: |
+        # Technique name / description
+        payload line 1
+        payload line 2
+    validations:
+      required: true
+  - type: input
+    id: technique
+    attributes:
+      label: Technique name
+      description: Short name for the attack technique (e.g., "Unicode homoglyph injection")
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Where did you encounter this technique? Any references or write-ups?
+    validations:
+      required: false

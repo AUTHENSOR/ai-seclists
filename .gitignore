@@ -19,3 +19,7 @@ Thumbs.db
 # Output
 encoded/
 output/
+
+# SIEGE (decompressed on first run, not tracked)
+siege/siege.db
+siege/generated/

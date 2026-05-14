@@ -1,0 +1,42 @@
+name: Bug Report
+description: Report an issue with payloads, utility scripts, or documentation
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Payload file (incorrect/malformed content)
+        - Utility script (encode.py, generate-variants.py, siege-bridge.py)
+        - Documentation
+        - SIEGE database
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Commands or steps to reproduce the issue.
+      placeholder: |
+        1. Run `python utils/encode.py ...`
+        2. See error...
+    validations:
+      required: false
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, tool version if relevant
+      placeholder: "macOS 15, Python 3.12"
+    validations:
+      required: false
