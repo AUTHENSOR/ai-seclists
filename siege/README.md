@@ -20,7 +20,7 @@ SIEGE is a database of structured threat models for AI systems. Each scenario is
 ## Quick start
 
 ```bash
-# Decompress the database (one-time, ~71MB)
+# Decompress the database (one-time, ~75MB)
 gunzip -k siege.db.gz
 
 # Query directly
@@ -45,7 +45,7 @@ python utils/siege-bridge.py
 # Summary statistics
 python utils/siege-bridge.py --stats
 
-# Single domain
+# Scope the full report set to a single domain (writes to siege/generated/)
 python utils/siege-bridge.py --domain Healthcare
 
 # Coverage matrix only
@@ -63,7 +63,7 @@ python utils/siege-bridge.py --export-csv scenarios.csv
 | Metric | Count |
 |--------|-------|
 | Scenarios | 10,010 |
-| Domains | 12 |
+| Primary domains | 12 (plus cross-domain and combined-domain scenarios) |
 | Critical severity | 4,479 |
 | High severity | 4,984 |
 | Harm types | 8 |
