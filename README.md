@@ -20,7 +20,7 @@
 
 | Category | Payloads | Files | What it covers |
 |----------|----------|-------|----------------|
-| [`prompt-injection/`](prompt-injection/) | 1,005 | 15 | Instruction overrides, delimiter injection, encoding evasion (Base64, hex, Unicode, ROT13), multilingual attacks, context overflow, indirect injection, multi-turn chains |
+| [`prompt-injection/`](prompt-injection/) | 1,234 | 22 | Instruction overrides, delimiter injection, encoding evasion (Base64, hex, Unicode, ROT13), multilingual attacks, context overflow, indirect injection, multi-turn chains |
 | [`jailbreaks/`](jailbreaks/) | 1,147 | 16 | DAN variants, roleplay, hypothetical/academic framing, crescendo, many-shot, payload splitting, token smuggling, refusal suppression |
 | [`tool-abuse/`](tool-abuse/) | 833 | 11 | Path traversal, SSRF, command/SQL injection via tool params, MCP poisoning, privilege escalation, resource exhaustion |
 | [`exfiltration/`](exfiltration/) | 729 | 11 | Prompt leaking, markdown image exfil, DNS/webhook exfil, steganographic output, training data extraction, side-channel |
@@ -33,7 +33,7 @@
 | [`model-specific/`](model-specific/) | 195 | 4 | Targeted payloads for ChatGPT, Claude, Gemini, and open-source models |
 | [`rag-poisoning/`](rag-poisoning/) | 188 | 4 | Document injection, chunk boundary exploits, metadata attacks, retrieval manipulation |
 | [`benign/`](benign/) | 175 | 4 | False-positive calibration: normal conversations, technical discussions, code snippets, educational content |
-| [`siege/`](siege/) | 10,010 | 1 (SQLite) | Structured failure scenarios across 12 domains with eval coverage gaps, severity ratings, adversarial variants |
+| [`siege/`](siege/) | 10,010 | 1 (SQLite) | Structured failure scenarios across 12 primary domains (plus cross-domain and combined-domain scenarios) with eval coverage gaps, severity ratings, adversarial variants |
 
 > **Total: 6,500+ hand-curated payloads + 10,010 structured failure scenarios.** All synthetic. No real credentials or PII.
 
@@ -157,7 +157,7 @@ python utils/siege-bridge.py
 # Summary statistics
 python utils/siege-bridge.py --stats
 
-# Single domain
+# Scope the full report set to a single domain (writes to siege/generated/)
 python utils/siege-bridge.py --domain Healthcare
 
 # Which benchmarks have the worst coverage of SIEGE scenarios
@@ -167,7 +167,7 @@ python utils/siege-bridge.py --eval-gaps
 python utils/siege-bridge.py --export-csv scenarios.csv
 ```
 
-SIEGE maps 10,010 structured AI failure scenarios across 12 domains (Healthcare, Finance, Government, Legal, Infrastructure, Education, Military/Defense, Social Services, Employment, Media, Consumer, Research). Each scenario includes eval coverage data showing which benchmarks (HarmBench, TrustLLM, SafetyBench, NIST AIRMF, etc.) fail to test for it. See [`siege/README.md`](siege/README.md) for details.
+SIEGE maps 10,010 structured AI failure scenarios across 12 primary domains (Healthcare, Finance, Government, Legal, Infrastructure, Education, Military/Defense, Social Services, Employment, Media, Consumer, Research), plus cross-domain and combined-domain scenarios. Each scenario includes eval coverage data showing which benchmarks (HarmBench, TrustLLM, SafetyBench, NIST AIRMF, etc.) fail to test for it. See [`siege/README.md`](siege/README.md) for details.
 
 ## Contributing
 
