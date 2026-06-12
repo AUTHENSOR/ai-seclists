@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/payloads-6%2C500%2B-red" alt="Payloads">
   <img src="https://img.shields.io/badge/SIEGE_scenarios-10%2C010-purple" alt="SIEGE Scenarios">
   <img src="https://img.shields.io/badge/categories-14-blue" alt="Categories">
-  <img src="https://img.shields.io/badge/files-108-orange" alt="Files">
+  <img src="https://img.shields.io/badge/files-107-orange" alt="Files">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
   <a href="https://github.com/AUTHENSOR/ai-seclists/stargazers"><img src="https://img.shields.io/github/stars/AUTHENSOR/ai-seclists?style=social" alt="Stars"></a>
 </p>
