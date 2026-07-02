@@ -1,14 +1,17 @@
 <p align="center">
-  <img src=".github/assets/logo.svg" alt="AI SecLists" width="800">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/banner-dark.svg">
+    <img src=".github/assets/banner-light.svg" alt="AI SecLists" width="780">
+  </picture>
 </p>
 
 
 <p align="center">
-  <img src="https://img.shields.io/badge/payloads-6%2C500%2B-red" alt="Payloads">
-  <img src="https://img.shields.io/badge/SIEGE_scenarios-10%2C010-purple" alt="SIEGE Scenarios">
-  <img src="https://img.shields.io/badge/categories-14-blue" alt="Categories">
-  <img src="https://img.shields.io/badge/files-107-orange" alt="Files">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/payloads-6%2C500%2B-C9A227?style=flat-square&labelColor=1a1a1a" alt="Payloads">
+  <img src="https://img.shields.io/badge/SIEGE_scenarios-10%2C010-722F37?style=flat-square&labelColor=1a1a1a" alt="SIEGE Scenarios">
+  <img src="https://img.shields.io/badge/categories-14-C9A227?style=flat-square&labelColor=1a1a1a" alt="Categories">
+  <img src="https://img.shields.io/badge/files-107-C9A227?style=flat-square&labelColor=1a1a1a" alt="Files">
+  <img src="https://img.shields.io/badge/license-MIT-722F37?style=flat-square&labelColor=1a1a1a" alt="License">
   <a href="https://github.com/AUTHENSOR/ai-seclists/stargazers"><img src="https://img.shields.io/github/stars/AUTHENSOR/ai-seclists?style=social" alt="Stars"></a>
 </p>
 
@@ -171,7 +174,7 @@ SIEGE maps 10,010 structured AI failure scenarios across 12 primary domains (Hea
 
 ## Contributing
 
-We welcome PRs -- especially new attack techniques, payloads in underrepresented languages, real-world jailbreaks (with credit), and benign examples that cause false positives in existing tools.
+We welcome PRs, especially new attack techniques, payloads in underrepresented languages, real-world jailbreaks (with credit), and benign examples that cause false positives in existing tools.
 
 **Format:** one payload per line, `#` comments to explain the technique, UTF-8 with LF line endings. See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
@@ -184,7 +187,7 @@ git commit -m "Add [technique] payloads to [category]"
 
 ## Responsible Use
 
-These payloads are for testing systems you own or have authorization to test. Use them to build safer AI -- not to attack production systems without permission.
+These payloads are for testing systems you own or have authorization to test. Use them to build safer AI, not to attack production systems without permission.
 
 ## Citation
 
